@@ -30,25 +30,25 @@
         layer1: _LOWER {
             bindings = <
                 &tog 4    &kp 1      &kp 2      &kp 3      &kp 4      &kp 5
-                &kp 6      &kp 7      &kp 8      &kp 9      &kp 0      &kp BSPC
-                &kp LSFT   &kp GUI   &kp LBRC   &kp RBRC   &kp UP     &kp F9
-                &kp HOME   &kp PGDN  &kp PGUP  &kp END    &kp I      &kp O
-                &kp LCTL   &kp LBRC  &kp LEFT   &kp RIGHT  &kp H      &kp LEFT
-                &kp DOWN   &kp UP    &kp RIGHT  &kp F6     &kp F6    &kp LGUI
-                &kp TRNS   &kp SPC   &kp ENT   &mo 3     &kp RALT
+                &kp 6    &kp 7      &kp 8      &kp 9      &kp 0      &kp BSPC
+                &kp LSFT &kp GUI    &kp LBRC   &kp RBRC   &kp UP    &kp F9
+                &kp HOME &kp PGDN  &kp PGUP   &kp END    &kp I    &kp O
+                &kp LCTL &kp LBRC  &kp LEFT   &kp RIGHT  &kp H    &kp LEFT
+                &kp DOWN &kp UP    &kp RIGHT  &kp F6     &kp F6   &kp LGUI
+                &kp TRNS &kp SPC   &kp ENT   &mo 3     &kp RALT
             >;
         };
 
         // Raise Layer
         layer2: _RAISE {
             bindings = <
-                &kp TAB    &kp EXLM  &kp EQL   &kp GT    &kp HASH  &kp DLR
-                &kp PIPE   &kp AMPR  &kp LPRN  &kp RPRN  &kp AT    &kp BSPC
-                &kp LSFT   &kp GUI   &kp Y    &kp R      &kp TILD  &kp PLUS
-                &kp CIRC   &kp SLSH  &kp ASTER &kp LBRC  &kp RBRC  &kp QUOT
-                &kp QUOT   &kp LCTL  &kp F7    &kp F8    &kp F9    &kp PERC
-                &kp MINS   &kp BSLS  &kp SLSH  &kp LBRC  &kp RBRC  &kp MINS
-                &kp GRV    &kp LGUI  &mo 3    &kp SPC   &kp ENT  &kp TRNS
+                &kp TAB   &kp EXLM  &kp EQL   &kp GT    &kp HASH  &kp DLR
+                &kp PIPE  &kp AMPR  &kp LPRN  &kp RPRN  &kp AT    &kp BSPC
+                &kp LSFT  &kp GUI   &kp Y    &kp R      &kp TILD  &kp PLUS
+                &kp CIRC  &kp SLSH  &kp ASTER &kp LBRC  &kp RBRC  &kp QUOT
+                &kp QUOT  &kp LCTL  &kp F7    &kp F8    &kp F9    &kp PERC
+                &kp MINS  &kp BSLS  &kp SLSH  &kp LBRC  &kp RBRC  &kp MINS
+                &kp GRV   &kp LGUI  &mo 3    &kp SPC   &kp ENT   &kp TRNS
             >;
         };
 
