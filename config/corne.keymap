@@ -12,68 +12,48 @@
     keymap {
         compatible = "zmk,keymap";
 
-        // Base Layer
         layer0: _BASE {
             bindings = <
-                &kp TAB     &kp Q      &kp W      &kp E      &kp R      &kp T
-                &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC
-                &kp LSFT   &kp A      &kp S      &kp D      &kp F      &kp G
-                &kp H      &kp J      &kp K      &kp L      &kp ALGR   &kp N
-                &kp ALGR   &kp E      &kp LCTL   &kp Z      &kp X      &kp C
-                &kp V      &kp B      &kp N      &kp M      &kp COMM   &kp DOT
-                &kp SCLN   &kp ESC    &kp LGUI   &mo 1     &kp SPC    &kp ENT
-                &mo 2     &kp RALT
+                &kp TAB   &kp Q   &kp W   &kp E   &kp R      &kp T      &kp Y   &kp U   &kp I      &kp O    &kp P     &kp BSPC
+                &kp LSHFT &kp A   &kp S   &kp D   &kp F      &kp G      &kp H   &kp J   &kp K      &kp L    &kp ALGR  &kp N
+                &kp ALGR  &kp Z   &kp X   &kp C   &kp V      &kp B      &kp N   &kp M   &kp COMMA  &kp DOT  &kp SCLN  &kp ESC
+                                         &kp LGUI  &mo _LOWER &kp SPACE  &kp RET &mo _RAISE &kp RALT
             >;
         };
 
-        // Lower Layer
         layer1: _LOWER {
             bindings = <
-                &tog 4    &kp 1      &kp 2      &kp 3      &kp 4      &kp 5
-                &kp 6    &kp 7      &kp 8      &kp 9      &kp 0      &kp BSPC
-                &kp LSFT &kp GUI    &kp LBRC   &kp RBRC   &kp UP    &kp F9
-                &kp HOME &kp PGDN  &kp PGUP   &kp END    &kp I    &kp O
-                &kp LCTL &kp LBRC  &kp LEFT   &kp RIGHT  &kp H    &kp LEFT
-                &kp DOWN &kp UP    &kp RIGHT  &kp F6     &kp F6   &kp LGUI
-                &kp TRNS &kp SPC   &kp ENT   &mo 3     &kp RALT
+                &tog _FUNCTION &kp N1  &kp N2  &kp N3    &kp N4    &kp N5     &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp BSPC
+                &kp LSHFT      &kp LGUI &kp LBRC &kp RBRC &kp UP    &kp F9     &kp HOME  &kp PG_DN &kp PG_UP &kp END   &kp I     &kp O
+                &kp LCTRL      &kp LBRC &kp LEFT &kp RIGHT &kp DOWN  &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT &kp F6    &kp F6    &kp LGUI
+                                               &trans    &trans    &kp SPACE  &kp RET   &mo _ADJUST &kp RALT
             >;
         };
 
-        // Raise Layer
         layer2: _RAISE {
             bindings = <
-                &kp TAB   &kp EXLM  &kp EQL   &kp GT    &kp HASH  &kp DLR
-                &kp PIPE  &kp AMPR  &kp LPRN  &kp RPRN  &kp AT    &kp BSPC
-                &kp LSFT  &kp GUI   &kp Y    &kp R      &kp TILD  &kp PLUS
-                &kp CIRC  &kp SLSH  &kp ASTER &kp LBRC  &kp RBRC  &kp QUOT
-                &kp QUOT  &kp LCTL  &kp F7    &kp F8    &kp F9    &kp PERC
-                &kp MINS  &kp BSLS  &kp SLSH  &kp LBRC  &kp RBRC  &kp MINS
-                &kp GRV   &kp LGUI  &mo 3    &kp SPC   &kp ENT   &kp TRNS
+                &kp TAB   &kp EXCL  &kp EQUAL &kp GT    &kp HASH  &kp DLLR   &kp PIPE  &kp AMPS  &kp LPAR  &kp RPAR  &kp AT    &kp BSPC
+                &kp LSHFT &kp LGUI  &kp Y     &kp R     &kp TILDE &kp PLUS   &kp CARET &kp FSLH  &kp STAR  &kp LBRC  &kp RBRC  &kp QUOT
+                &kp QUOT  &kp LCTRL &kp F7    &kp F8    &kp F9    &kp PRCNT  &kp MINUS &kp BSLH  &kp FSLH  &kp LBRC  &kp RBRC  &kp MINUS
+                                              &kp LGUI  &mo _ADJUST &kp SPACE &kp RET   &trans    &kp GRAVE
             >;
         };
 
-        // Adjust Layer
         layer3: _ADJUST {
             bindings = <
-                &reset    &kp NO    &kp NO    &kp NO    &kp NO    &kp NO
-                &kp NO    &kp NO    &kp NO    &kp NO    &kp NO    &kp NO
-                &rgb_tog  &rgb_hui &rgb_sai &rgb_vai &kp NO    &kp NO
-                &kp NO    &kp NO    &kp NO    &kp NO    &kp NO    &kp NO
-                &rgb_mod  &rgb_hud &rgb_sad &rgb_vad &kp NO    &kp NO
-                &kp NO    &kp NO    &kp NO    &kp NO    &kp NO    &kp NO
+                &reset    &none     &none     &none     &none     &none      &none     &none     &none     &none     &none     &none
+                &rgb_tog  &rgb_hui  &rgb_sai  &rgb_vai  &none     &none      &none     &none     &none     &none     &none     &none
+                &rgb_mod  &rgb_hud  &rgb_sad  &rgb_vad  &none     &none      &none     &none     &none     &none     &none     &none
+                                              &trans    &trans    &none      &none     &trans    &trans
             >;
         };
 
-        // Function Layer (for key logging and other functions)
         layer4: _FUNCTION {
             bindings = <
-                &kp ESC    &kp 1     &kp 2     &kp 3     &kp 4     &kp 5
-                &kp NO     &kp NO    &kp NO    &kp NO    &kp NO    &kp NO
-                &kp TAB    &kp Q     &kp W     &kp E     &kp R     &kp 6
-                &kp NO     &kp NO    &kp NO    &kp NO    &kp NO    &kp NO
-                &kp LCTL   &kp A     &kp S     &kp D     &kp F     &kp B
-                &kp NO     &kp NO    &kp NO    &kp NO    &kp NO    &kp NO
-                &kp LALT   &kp G     &kp SPC   &kp NO    &tog 4   &kp NO
+                &kp ESC   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5     &none     &none     &none     &none     &none     &none
+                &kp TAB   &kp Q     &kp W     &kp E     &kp R     &kp N6     &none     &none     &none     &none     &none     &none
+                &kp LCTRL &kp A     &kp S     &kp D     &kp F     &kp B      &none     &none     &none     &none     &none     &none
+                                              &kp LALT  &kp G     &kp SPACE  &none     &tog _FUNCTION &none
             >;
         };
     };
