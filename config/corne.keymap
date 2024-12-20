@@ -1,42 +1,81 @@
-/*
- * Copyright (c) 2020 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
-
-#include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/keymap.h>
 
+#define _BASE 0
+#define _LOWER 1
+#define _RAISE 2
+#define _ADJUST 3
+#define _FUNCTION 4
 
-  / {
+/ {
     keymap {
-      compatible = "zmk,keymap";
-  layer0 {
-          bindings = <
-          &mt LEFT_SHIFT TAB &kp Q &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P &kp BACKSPACE &kp LEFT_SHIFT &kp A &kp S &kp D &kp F &kp G &kp H &kp J &kp K &kp L &kp LA(N) &kp LA(E) &kp LEFT_CONTROL &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp COMMA &kp DOT &kp SEMICOLON &kp ESCAPE &kp LEFT_GUI &mo 1 &kp SPACE &kp ENTER &mo 2 &kp RIGHT_ALT
-          >;
-        };layer1 {
-          bindings = <
-          &tog 4 &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp BACKSPACE &kp LEFT_SHIFT &kp LG(B) &mt LEFT_SHIFT LEFT_BRACKET &mt LEFT_SHIFT RIGHT_BRACKET &kp LG(UP) &kp LA(F9) &kp HOME &kp PAGE_DOWN &kp PAGE_UP &kp END &kp LC(I) &kp LC(O) &kp LEFT_CONTROL &none &none &none &none &none &kp LEFT &kp DOWN &kp UP &kp RIGHT &none &kp LG(F6) &kp LEFT_GUI &trans &kp SPACE &kp ENTER &mo 3 &kp RIGHT_ALT
-          >;
-        };layer2 {
-          bindings = <
-          &kp TAB &none &kp EQUAL &none &none &none &none &none &none &none &none &kp BACKSPACE &kp LEFT_SHIFT &kp LG(Y) &none &none &none &none &kp SLASH &none &kp LEFT_BRACKET &kp RIGHT_BRACKET &none &kp SINGLE_QUOTE &kp LEFT_CONTROL &kp F7 &kp F8 &kp F9 &none &none &kp BACKSLASH &none &none &none &kp MINUS &kp GRAVE &kp LEFT_GUI &mo 3 &kp SPACE &kp ENTER &trans &kp RIGHT_ALT
-          >;
-        };layer3 {
-          bindings = <
-          &sys_reset &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &none &kp LEFT_GUI &trans &kp SPACE &kp ENTER &trans &kp RIGHT_ALT
-          >;
-        };layer4 {
-          bindings = <
-          &kp ESCAPE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &none &none &none &none &none &none &kp TAB &kp Q &kp W &kp E &kp R &kp N6 &none &none &none &none &none &none &kp LEFT_CONTROL &kp A &kp S &kp D &kp F &kp B &none &none &none &none &none &none &kp LEFT_ALT &kp G &kp SPACE &none &tog 4 &none
-          >;
+        compatible = "zmk,keymap";
+
+        // Base Layer
+        layer0: _BASE {
+            bindings = <
+                &kp TAB     &kp Q      &kp W      &kp E      &kp R      &kp T
+                &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC
+                &kp LSFT   &kp A      &kp S      &kp D      &kp F      &kp G
+                &kp H      &kp J      &kp K      &kp L      &kp ALGR   &kp N
+                &kp ALGR   &kp E      &kp LCTL   &kp Z      &kp X      &kp C
+                &kp V      &kp B      &kp N      &kp M      &kp COMM   &kp DOT
+                &kp SCLN   &kp ESC    &kp LGUI   &mo 1     &kp SPC    &kp ENT
+                &mo 2     &kp RALT
+            >;
+        };
+
+        // Lower Layer
+        layer1: _LOWER {
+            bindings = <
+                &tog 4    &kp 1      &kp 2      &kp 3      &kp 4      &kp 5
+                &kp 6      &kp 7      &kp 8      &kp 9      &kp 0      &kp BSPC
+                &kp LSFT   &kp GUI   &kp LBRC   &kp RBRC   &kp UP     &kp F9
+                &kp HOME   &kp PGDN  &kp PGUP  &kp END    &kp I      &kp O
+                &kp LCTL   &kp LBRC  &kp LEFT   &kp RIGHT  &kp H      &kp LEFT
+                &kp DOWN   &kp UP    &kp RIGHT  &kp F6     &kp F6    &kp LGUI
+                &kp TRNS   &kp SPC   &kp ENT   &mo 3     &kp RALT
+            >;
+        };
+
+        // Raise Layer
+        layer2: _RAISE {
+            bindings = <
+                &kp TAB    &kp EXLM  &kp EQL   &kp GT    &kp HASH  &kp DLR
+                &kp PIPE   &kp AMPR  &kp LPRN  &kp RPRN  &kp AT    &kp BSPC
+                &kp LSFT   &kp GUI   &kp Y    &kp R      &kp TILD  &kp PLUS
+                &kp CIRC   &kp SLSH  &kp ASTER &kp LBRC  &kp RBRC  &kp QUOT
+                &kp QUOT   &kp LCTL  &kp F7    &kp F8    &kp F9    &kp PERC
+                &kp MINS   &kp BSLS  &kp SLSH  &kp LBRC  &kp RBRC  &kp MINS
+                &kp GRV    &kp LGUI  &mo 3    &kp SPC   &kp ENT  &kp TRNS
+            >;
+        };
+
+        // Adjust Layer
+        layer3: _ADJUST {
+            bindings = <
+                &reset    &kp NO    &kp NO    &kp NO    &kp NO    &kp NO
+                &kp NO    &kp NO    &kp NO    &kp NO    &kp NO    &kp NO
+                &rgb_tog  &rgb_hui &rgb_sai &rgb_vai &kp NO    &kp NO
+                &kp NO    &kp NO    &kp NO    &kp NO    &kp NO    &kp NO
+                &rgb_mod  &rgb_hud &rgb_sad &rgb_vad &kp NO    &kp NO
+                &kp NO    &kp NO    &kp NO    &kp NO    &kp NO    &kp NO
+            >;
+        };
+
+        // Function Layer (for key logging and other functions)
+        layer4: _FUNCTION {
+            bindings = <
+                &kp ESC    &kp 1     &kp 2     &kp 3     &kp 4     &kp 5
+                &kp NO     &kp NO    &kp NO    &kp NO    &kp NO    &kp NO
+                &kp TAB    &kp Q     &kp W     &kp E     &kp R     &kp 6
+                &kp NO     &kp NO    &kp NO    &kp NO    &kp NO    &kp NO
+                &kp LCTL   &kp A     &kp S     &kp D     &kp F     &kp B
+                &kp NO     &kp NO    &kp NO    &kp NO    &kp NO    &kp NO
+                &kp LALT   &kp G     &kp SPC   &kp NO    &tog 4   &kp NO
+            >;
         };
     };
-  };
-
-&led_strip {
-    chain-length = <27>;
 };
