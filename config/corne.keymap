@@ -52,7 +52,7 @@
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp RBKT
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
                   &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp LALT
                         >;
@@ -65,8 +65,8 @@
 // | SHFT |  1  |  2  |  3  |  .  |  0  |   |     |  <  |  >  |  |  |  _  | DEL  |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp TAB   &kp N7 &kp N8 &kp N9 &kp FSLH  &kp KP_MULTIPLY    &kp LBKT &kp RBKT &kp BSLH &kp SLASH &kp EXCL  &kp BSPC
-   &kp LCTRL &kp N4 &kp N5 &kp N6 &kp PLUS  &kp MINUS   &kp LPAR &kp RPAR &kp LBRC &kp RBRC  &kp EQUAL &kp GRAVE
+   &kp TAB   &kp N7 &kp N8 &kp N9 &kp FSLH  &kp KP_MULTIPLY    &kp MINUS &kp EQUAL &kp BSLH &kp EQUAL &kp N1    &kp BSPC
+   &kp LCTRL &kp N4 &kp N5 &kp N6 &kp PLUS  &kp MINUS   &kp LPAR &kp RPAR &kp LBKT &kp RBKT  &kp N0    &kp LBKT
    &kp LSHFT &kp N1 &kp N2 &kp N3 &kp DOT   &kp N0      &trans   &kp LT   &kp GT   &kp PIPE  &kp UNDER &kp DEL
                           &kp LGUI &trans &kp SPACE   &kp RET &trans &kp LALT
                         >;
