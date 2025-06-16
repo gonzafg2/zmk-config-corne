@@ -52,7 +52,7 @@
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LSHFT &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp RBKT
+   &kp LSHFT &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp GRAVE
    &kp LCTRL &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
                   &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp LALT
                         >;
@@ -65,7 +65,7 @@
 // | SHFT |  1  |  2  |  3  |  .  |  0  |   |     |  <  |  >  |  |  |  _  | DEL  |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp TAB   &kp N7 &kp N8 &kp N9 &kp SLASH &kp KP_MULTIPLY    &kp MINUS &kp EQUAL &kp NUBS &kp EQUAL &kp EXCL  &kp BSPC
+   &kp TAB   &kp N7 &kp N8 &kp N9 &kp LS(N7) &kp KP_MULTIPLY    &kp MINUS &kp EQUAL &kp NUBS &kp EQUAL &kp EXCL  &kp BSPC
    &kp LSHFT &kp N4 &kp N5 &kp N6 &kp RBKT  &kp FSLH     &kp N8   &kp N9   &kp GRAVE &kp RBKT  &kp EQUAL &kp GRAVE
    &kp LCTRL &kp N1 &kp N2 &kp N3 &kp DOT   &kp N0      &trans   &kp LT   &kp GT   &kp PIPE  &kp UNDER &kp DEL
                           &kp LGUI &trans &kp SPACE   &kp RET &trans &kp LALT
@@ -80,7 +80,7 @@
 //                    | GUI |     | SPC |   | ENT |     | ALTGR |
                         bindings = <
    &kp TAB   &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT   &kp AMPS  &kp FSLH    &kp LPAR    &kp RPAR  &kp QMARK &kp BSPC
-   &kp LSHFT &kp CARET &kp AT    &trans    &kp TILDE &trans      &kp LEFT  &kp DOWN    &kp UP      &kp RIGHT &trans    &kp RBKT
+   &kp LSHFT &kp CARET &kp AT    &trans    &kp TILDE &trans      &kp LEFT  &kp DOWN    &kp UP      &kp RIGHT &trans    &kp GRAVE
    &kp LCTRL &trans    &trans    &trans    &trans    &trans      &kp HOME  &kp PG_DN   &kp PG_UP   &kp END   &kp INS   &kp ESC
                                  &kp LGUI  &trans    &kp SPACE   &kp RET   &trans      &kp RALT
                         >;
