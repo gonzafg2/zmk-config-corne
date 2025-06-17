@@ -65,9 +65,9 @@
 // | SHFT |  1  |  2  |  3  |  .  |  0  |   |  [  |  ]  |  <  |  >  |  |  |  _  | DEL  |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp TAB   &kp N7 &kp N8 &kp N9 &kp LS(N7) &kp KP_MULTIPLY    &kp LS(N8)     &kp LS(N9)     &kp LA(N7)     &kp EXCL      &kp LS(FSLH)   &kp BSPC
-   &kp LSHFT &kp N4 &kp N5 &kp N6 &kp RBKT   &kp FSLH           &kp LA(N8)     &kp LA(N9)     &kp LA(LBKT)   &kp MINUS     &kp LS(N2)     &kp LBKT
-   &kp LCTRL &kp N1 &kp N2 &kp N3 &kp DOT    &kp N0             &kp LA(LBKT)   &kp LA(RBKT)   &kp COMMA      &kp DOT       &kp LA(N1)     &kp LS(FSLH)   &kp DEL
+   &kp TAB   &kp N7 &kp N8 &kp N9 &kp LS(N7) &kp KP_MULTIPLY    &kp LS(N8)     &kp LS(N9)     &kp RA(Q)      &kp EXCL      &kp UNDER      &kp BSPC
+   &kp LSHFT &kp N4 &kp N5 &kp N6 &kp RBKT   &kp FSLH           &kp SQT        &kp BSLH       &kp RA(RBKT)   &kp MINUS     &kp LS(N2)     &kp LBKT
+   &kp LCTRL &kp N1 &kp N2 &kp N3 &kp DOT    &kp N0             &kp DQT        &kp PIPE       &kp COMMA      &kp DOT       &kp GRAVE      &kp QMARK      &kp DEL
                           &kp LGUI &trans &kp SPACE   &kp RET &trans &kp LALT
                         >;
                 };
