@@ -89,6 +89,24 @@
                                  , <&macro_release &kp LALT>
                                  , <&macro_release &kp LGUI>;
                 };
+                
+                plus_eq: plus_eq {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings = <&kp RBKT &kp LS(N0)>;
+                };
+                
+                minus_eq: minus_eq {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings = <&kp FSLH &kp LS(N0)>;
+                };
+                
+                not_eq: not_eq {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings = <&kp EXCL &kp LS(N0) &kp LS(N0)>;
+                };
         };
 
         keymap {
