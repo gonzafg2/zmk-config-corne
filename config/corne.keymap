@@ -113,6 +113,12 @@
                         #binding-cells = <0>;
                         bindings = <&kp LS(N0) &kp LS(N0) &kp LS(N0)>;
                 };
+                
+                clear_layers: clear_layers {
+                        compatible = "zmk,behavior-macro";
+                        #binding-cells = <0>;
+                        bindings = <&to 0>;
+                };
         };
 
         keymap {
@@ -168,10 +174,33 @@
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &kp F1           &kp F2       &kp F3       &kp F4       &kp F5       &kp F6          &kp F7          &kp F8            &kp F9            &kp F10      &kp F11          &kp F12
-   &bt BT_SEL 0     &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR      &trans          &trans            &trans            &trans          &trans          &trans
+   &bt BT_SEL 0     &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR      &clear_layers   &trans            &trans            &trans          &trans          &trans
    &ext_power EP_TOG &scr_full   &scr_area    &scr_tool    &lock_screen &force_quit     &kp C_VOL_UP    &kp C_VOL_DN      &kp C_MUTE        &kp C_PREV   &kp C_NEXT       &kp C_PP
                                               &kp LGUI     &trans       &kp SPACE       &kp RET         &trans            &kp LALT
                         >;
+                };
+        };
+
+        behaviors {
+                lth: layer_tap_hold {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "LAYER_TAP_HOLD";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <150>;
+                        flavor = "balanced";
+                        bindings = <&mo>, <&kp>;
+                        hold-trigger-key-positions = <0>;
+                };
+        };
+
+        combos {
+                compatible = "zmk,combos";
+                combo_adjust {
+                        timeout-ms = <50>;
+                        key-positions = <0 11>;  // TAB + BSPC (esquinas superiores)
+                        bindings = <&mo 3>;
+                        layers = <0 1 2>;  // Funciona en todas las capas base
                 };
         };
 
