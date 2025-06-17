@@ -166,3 +166,11 @@ Verify these macros produce correct output:
 ## Troubleshooting
 
 If layers get stuck, use the **CLEAR** button in ADJUST layer or the TAB+BACKSPACE combo to reset to base layer.
+
+### Adjusting Layer-Tap Timing
+If 150ms hold time for ESC→ADJUST feels too fast or slow, modify in `corne.keymap`:
+```c
+lt_fast: layer_tap_fast {
+    tapping-term-ms = <150>;  // Adjust this value (100-250ms recommended)
+}
+```
