@@ -127,6 +127,35 @@ This configuration uses GitHub Actions for automated builds. Push changes to tri
    - `corne_left-nice_nano_v2.uf2` for left half
    - `corne_right-nice_nano_v2.uf2` for right half
 
+## Testing & Verification
+
+### Spanish Characters Test
+Test these key combinations to verify LATAM layout:
+```
+' + vowel = á é í ó ú
+Shift + ' = ¨ (for ü)
+AltGr + ? = ¿
+Shift + 1 = ¡
+< and > = NUBS and Shift+NUBS
+```
+
+### Programming Operators Test (RAISE layer)
+Verify these macros produce correct output:
+- `&&` - Logical AND
+- `||` - Logical OR
+- `=>` - Arrow function
+- `==` - Equality
+- `!==` - Strict inequality
+- `===` - Strict equality
+- `+=` - Addition assignment
+- `-=` - Subtraction assignment
+- `...` - Spread operator
+
+### Layer Switching Test
+1. Test ESC layer-tap: Hold ESC for 150ms → ADJUST layer
+2. Test combo: TAB + BSPC simultaneously → ADJUST layer
+3. Verify no stuck layers after multiple activations
+
 ## Troubleshooting
 
 If layers get stuck, use the **CLEAR** button in ADJUST layer or the TAB+BACKSPACE combo to reset to base layer.

@@ -1,6 +1,0 @@
-// TEST: En default layer, cambia ESC por acceso directo a ADJUST
-// Línea 56, última tecla:
-&kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &mo 3
-
-// Esto te permite probar ADJUST directamente manteniendo presionada 
-// la tecla donde normalmente está ESC

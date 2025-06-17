@@ -215,7 +215,9 @@
         };
 
         // ELIMINADO: Conditional layers tienen un bug con mo behaviors
-        // Usar combo TAB+BSPC o tecla dedicada en su lugar
+        // Acceso a ADJUST: 
+        // - Opción 1: Mantener ESC presionado (layer-tap)
+        // - Opción 2: Combo TAB+BSPC (backup)
 };
 
 &led_strip {
