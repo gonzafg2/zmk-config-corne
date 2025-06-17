@@ -14,6 +14,13 @@ This is a ZMK firmware configuration for a Corne (crkbd) split mechanical keyboa
 
 ⚠️ **For proper symbol mapping on macOS, you MUST configure your keyboard as ISO layout, not ANSI**
 
+### macOS Keyboard Setup
+1. Go to System Preferences → Keyboard
+2. Click "Change Keyboard Type..."
+3. When prompted, press the key to the left of "1" (should be °)
+4. Select **ISO (European)** layout
+5. Verify by typing: < > should work with NUBS key
+
 ## Keymap Overview
 
 ### Base Layer (QWERTY)

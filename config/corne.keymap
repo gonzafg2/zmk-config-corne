@@ -220,6 +220,7 @@
         // - Opción 2: Combo TAB+BSPC (backup)
 };
 
-&led_strip {
-    chain-length = <27>;
-};
+// RGB disabled - no LEDs on this build
+// &led_strip {
+//     chain-length = <27>;
+// };
