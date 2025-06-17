@@ -133,7 +133,7 @@
                         bindings = <
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &kp LSHFT &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp LBKT
-   &kp LCTRL &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
+   &kp LCTRL &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &lt_fast 3 ESC
                   &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp LALT
                         >;
                 };
@@ -192,6 +192,16 @@
                         bindings = <&mo>, <&kp>;
                         hold-trigger-key-positions = <0>;
                 };
+                
+                lt_fast: layer_tap_fast {
+                        compatible = "zmk,behavior-hold-tap";
+                        label = "LAYER_TAP_FAST";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <150>;  // Más rápido: 150ms
+                        quick-tap-ms = <100>;
+                        flavor = "tap-preferred";
+                        bindings = <&mo>, <&kp>;
+                };
         };
 
         combos {
@@ -204,13 +214,8 @@
                 };
         };
 
-        conditional_layers {
-                compatible = "zmk,conditional-layers";
-                tri_layer {
-                        if-layers = <1 2>;
-                        then-layer = <3>;
-                };
-        };
+        // ELIMINADO: Conditional layers tienen un bug con mo behaviors
+        // Usar combo TAB+BSPC o tecla dedicada en su lugar
 };
 
 &led_strip {
