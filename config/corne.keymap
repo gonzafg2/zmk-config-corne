@@ -105,7 +105,7 @@
                 not_eq: not_eq {
                         compatible = "zmk,behavior-macro";
                         #binding-cells = <0>;
-                        bindings = <&kp EXCL &kp LS(N0)>;
+                        bindings = <&kp EXCL &kp LS(N0) &kp LS(N0)>;
                 };
                 
                 triple_eq: triple_eq {
@@ -148,14 +148,14 @@
 
                 raise_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  &  |  *  |  =  |  +  |  -  | BKSP |
-// | SHIFT|  ^  |  /  |  :  |  ;  |  \  |   | LFT | DWN | UP  | RGT | +=  | -=   |
-// | CTRL | =>  | ... | ==  | !=  | <>  |   | HOM | PGD | PGU | END | &&  | ||   | ESC  |
+// |  TAB |  !  |  @  |  #  |  $  |  %  |   |     |     |     |     | +=  | BKSP |
+// | SHIFT|  ^  |     |  &  | &&  | ||  |   | LFT | DWN | UP  | RGT | -=  |      |
+// | CTRL | =>  | ... | ==  | !== | === |   | HOM | PGD | PGU | END |     |      | ESC  |
 //                    | GUI |     | SPC |   | ENT |     | ALTGR |
                         bindings = <
-   &kp TAB   &kp EXCL     &kp RA(Q)    &kp LS(N3)    &kp LS(N4)   &kp LS(N5)     &kp LS(N6)     &kp LS(RBKT)   &kp LS(N0)     &kp RBKT      &kp FSLH       &kp BSPC
-   &kp LSHFT &kp LA(SQT)  &kp LS(N7)   &kp LS(DOT)   &kp LS(COMMA) &kp LA(MINUS) &kp LEFT       &kp DOWN       &kp UP         &kp RIGHT     &plus_eq      &minus_eq
-   &kp LCTRL &arrow_op    &spread_op   &eq_op        &not_eq      &triple_eq     &kp HOME       &kp PG_DN      &kp PG_UP      &kp END       &and_op       &or_op         &kp ESC
+   &kp TAB   &kp EXCL     &kp RA(Q)    &kp LS(N3)    &kp LS(N4)   &kp LS(N5)     &trans         &trans         &trans         &trans        &plus_eq       &kp BSPC
+   &kp LSHFT &kp LA(SQT)  &trans       &kp LS(N6)    &and_op      &or_op         &kp LEFT       &kp DOWN       &kp UP         &kp RIGHT     &minus_eq     &trans
+   &kp LCTRL &arrow_op    &spread_op   &eq_op        &not_eq      &triple_eq     &kp HOME       &kp PG_DN      &kp PG_UP      &kp END       &trans        &trans         &kp ESC
                                        &kp LGUI      &trans       &kp SPACE      &kp RET   &trans      &kp RALT
                         >;
                 };
