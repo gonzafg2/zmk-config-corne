@@ -65,9 +65,9 @@
 // | SHFT |  1  |  2  |  3  |  .  |  0  |   |  [  |  ]  |  <  |  >  |  |  |  _  | DEL  |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp TAB   &kp N7 &kp N8 &kp N9 &kp LS(N7) &kp KP_MULTIPLY    &kp LS(LBKT)   &kp LS(RBKT)   &kp LS(MINUS)  &kp LS(EQUAL) &kp LS(BSLH)   &kp BSPC
-   &kp LSHFT &kp N4 &kp N5 &kp N6 &kp RBKT   &kp FSLH           &kp LS(GRAVE)  &kp LS(SQT)    &kp LS(NUBS)   &kp LA(N1)    &kp LA(N2)     &kp LA(N3)
-   &kp LCTRL &kp N1 &kp N2 &kp N3 &kp DOT    &kp N0             &kp LA(GRAVE)  &kp LA(SQT)    &kp LA(BSLH)   &kp LA(NUBS)  &kp LA(EQUAL)  &kp LA(RBKT)   &kp DEL
+   &kp TAB   &kp N7 &kp N8 &kp N9 &kp LS(N7) &kp KP_MULTIPLY    &kp EQUAL      &kp SLASH      &kp SEMI       &kp APOS      &kp LPAR       &kp BSPC
+   &kp LSHFT &kp N4 &kp N5 &kp N6 &kp RBKT   &kp FSLH           &kp RPAR       &kp LA(N8)     &kp LA(N9)     &kp LA(N0)    &kp LA(FSLH)   &kp LA(DOT)
+   &kp LCTRL &kp N1 &kp N2 &kp N3 &kp DOT    &kp N0             &kp RA(BSLH)   &kp RA(SQT)    &kp RA(GRAVE)  &kp RA(FSLH)  &kp RA(SEMI)   &kp RA(APOS)   &kp DEL
                           &kp LGUI &trans &kp SPACE   &kp RET &trans &kp LALT
                         >;
                 };
