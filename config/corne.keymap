@@ -125,8 +125,8 @@
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | BKSP |
-// | SHFT |  A  |  S  |  D  |  F  |  G  |   |  H  |  J  |  K  |  L  |  Ñ  | ESC  |
+// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  | BSDL |
+// | SSFT |  A  |  S  |  D  |  F  |  G  |   |  H  |  J  |  K  |  L  |  Ñ  |  ´   |
 // | CTRL |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  /  | ESC  |
 //                    | GUI | LWR | SPC |   | ENT | RSE | ALT |
                         bindings = <
@@ -139,9 +139,9 @@
                 
                 lower_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  7  |  8  |  9  |  /  |  *  |   |  (  |  )  |  \  |  !  |  ?  | BKSP |
-// | CTRL |  4  |  5  |  6  |  +  |  -  |   |  {  |  }  |  ~  |  '  |  "  |  `  |
-// | SHFT |  1  |  2  |  3  |  .  |  0  |   |  [  |  ]  |  <  |  >  |  |  |  _  | DEL  |
+// |  TAB |  7  |  8  |  9  |  /  |  *  |   |  (  |  )  |  \  |  !  |  ?  | BSDL |
+// | SSFT |  4  |  5  |  6  |  +  |  -  |   |  {  |  }  |  ~  |  '  |  "  |  `  |
+// | CTRL |  1  |  2  |  3  |  .  |  0  |   |  [  |  ]  |  <  |  >  |  |  |  _  | DEL  |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &kp TAB   &kp N7 &kp N8 &kp N9 &kp LS(N7) &kp KP_MULTIPLY    &kp LS(N8)     &kp LS(N9)     &kp LA(MINUS)  &kp EXCL      &kp UNDER      &bspc_del
@@ -154,7 +154,7 @@
                 raise_layer {
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |     | RPT |     |     | +=  | BSDL|
-// | SHIFT|  ^  |     |  &  | &&  | ||  |   | LFT | DWN | UP  | RGT | -=  |      |
+// | SSFT |  ^  |     |  &  | &&  | ||  |   | LFT | DWN | UP  | RGT | -=  |      |
 // | CTRL | =>  | ... | ==  | !== | === |   | HOM | PGD | PGU | END |     |      | ESC  |
 //                    | GUI |     | SPC |   | ENT |     | ALTGR |
                         bindings = <
@@ -236,7 +236,7 @@
                 compatible = "zmk,combos";
                 combo_adjust {
                         timeout-ms = <50>;
-                        key-positions = <0 11>;  // TAB + BSPC (esquinas superiores)
+                        key-positions = <0 11>;  // TAB + BSDL (esquinas superiores)
                         bindings = <&mo 3>;
                         layers = <0 1 2 4>;  // Funciona en todas las capas base + mouse
                 };
