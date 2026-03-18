@@ -1,16 +1,16 @@
-# ZMK Config for Corne Keyboard - Spanish LATAM Layout
+# 🎹 ZMK Config for Corne Keyboard - Spanish LATAM Layout
 
 This is a ZMK firmware configuration for a Corne (crkbd) split mechanical keyboard optimized for Spanish LATAM layout on macOS.
 
-## Features
+## ✨ Features
 
-- **Spanish LATAM Layout**: Full support for Spanish characters including ñ, accents, and special symbols
-- **Programming-focused layers**: Dedicated symbols and operators for coding
-- **macOS Integration**: Screenshot shortcuts, media controls, and system functions
-- **Power Management**: Optimized sleep and idle settings
-- **Bluetooth**: Multi-device support with 5 profiles
+- **🇪🇸 Spanish LATAM Layout**: Full support for Spanish characters including ñ, accents, and special symbols
+- **💻 Programming-focused layers**: Dedicated symbols and operators for coding
+- **🍎 macOS Integration**: Screenshot shortcuts, media controls, and system functions
+- **🔋 Power Management**: Optimized sleep and idle settings
+- **📶 Bluetooth**: Multi-device support with 5 profiles
 
-## Important Setup Note
+## ⚠️ Important Setup Note
 
 ⚠️ **For proper symbol mapping on macOS, you MUST configure your keyboard as ISO layout, not ANSI**
 
@@ -21,49 +21,54 @@ This is a ZMK firmware configuration for a Corne (crkbd) split mechanical keyboa
 4. Select **ISO (European)** layout
 5. Verify by typing: < > should work with NUBS key
 
-## Keymap Overview
+## ⌨️ Keymap Overview
 
-### Base Layer (QWERTY)
+### 🏠 Base Layer (QWERTY)
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 │ TAB │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │ BKSP│
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│SHIFT│  A  │  S  │  D  │  F  │  G  │   │  H  │  J  │  K  │  L  │  Ñ  │ ESC │
+│SHIFT│  A  │  S  │  D  │  F  │  G  │   │  H  │  J  │  K  │  L  │  Ñ  │  ´  │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│CTRL │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  /  │ DEL │
+│CTRL │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  -  │ESC* │
 └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
                    │ GUI │LOWER│ SPC │   │ ENT │RAISE│ ALT │
                    └─────┴─────┴─────┘   └─────┴─────┴─────┘
+
+*ESC: tap = ESC | hold (150ms) = Adjust layer
 ```
 
-### Lower Layer (Numbers & Spanish Symbols)
+### 🔢 Lower Layer (Numbers & Spanish Symbols)
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 │ TAB │  7  │  8  │  9  │  /  │  *  │   │  (  │  )  │  \  │  !  │  ?  │ BKSP│
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 │SHIFT│  4  │  5  │  6  │  +  │  -  │   │  {  │  }  │  ~  │  '  │  "  │  `  │
-├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│CTRL │  1  │  2  │  3  │  .  │  0  │   │  [  │  ]  │  <  │  >  │  |  │  _  │
-└─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
+├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
+│CTRL │  1  │  2  │  3  │  .  │  0  │   │  [  │  ]  │  <  │  >  │  |  │  _  │ DEL │
+└─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┴─────┘
                    │ GUI │     │ SPC │   │ ENT │     │ ALT │
                    └─────┴─────┴─────┘   └─────┴─────┴─────┘
+
+⚠️ Row 3 has 13 bindings (known firmware anomaly)
 ```
 
-### Raise Layer (Programming & Navigation)
+### 💻 Raise Layer (Programming & Navigation)
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 │ TAB │  !  │  @  │  #  │  $  │  %  │   │     │     │     │     │ +=  │ BKSP│
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 │SHIFT│  ^  │     │  &  │ &&  │ ||  │   │  ←  │  ↓  │  ↑  │  →  │ -=  │     │
-├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│CTRL │ =>  │ ... │ ==  │ !== │ === │   │HOME │PG_DN│PG_UP│ END │     │ ESC │
-└─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
+├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
+│CTRL │ =>  │ ... │ ==  │ !== │ === │   │HOME │PG_DN│PG_UP│ END │     │     │ ESC │
+└─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┴─────┘
                    │ GUI │     │ SPC │   │ ENT │     │ALTGR│
                    └─────┴─────┴─────┘   └─────┴─────┴─────┘
+
+⚠️ Row 3 has 13 bindings (known firmware anomaly)
 ```
 
-### Adjust Layer (System & Media)
-Access via: **LOWER + RAISE** or **TAB + BACKSPACE**
+### ⚙️ Adjust Layer (System & Media)
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 │ F1  │ F2  │ F3  │ F4  │ F5  │ F6  │   │ F7  │ F8  │ F9  │ F10 │ F11 │ F12 │
@@ -76,11 +81,20 @@ Access via: **LOWER + RAISE** or **TAB + BACKSPACE**
                    └─────┴─────┴─────┘   └─────┴─────┴─────┘
 ```
 
-## Special Functions
+> [!TIP]
+> **🔑 Accessing the Adjust Layer**
+>
+> There are 2 ways to activate this layer:
+> 1. **Hold ESC** (bottom-right corner of base layer) for 150ms
+> 2. **TAB + BACKSPACE combo** (press both simultaneously) — works from any layer
+>
+> ⚠️ Conditional layers (LOWER + RAISE) were disabled due to a bug with `mo` behaviors.
 
-### Programming Operators (RAISE layer)
+## 🎯 Special Functions
+
+### 💻 Programming Operators (RAISE layer)
 - `&&` - Logical AND
-- `||` - Logical OR  
+- `||` - Logical OR
 - `==` - Equality
 - `!==` - Strict inequality
 - `===` - Strict equality
@@ -89,44 +103,43 @@ Access via: **LOWER + RAISE** or **TAB + BACKSPACE**
 - `+=` - Addition assignment
 - `-=` - Subtraction assignment
 
-### System Controls (ADJUST layer)
+### 🖥️ System Controls (ADJUST layer)
 - **BT0-BT4**: Bluetooth profile selection
 - **BTCLR**: Clear current Bluetooth profile
 - **CLEAR**: Reset to base layer (emergency unstuck)
 - **SLEEP**: Power off keyboard
 - **SCR1**: Full screenshot (Cmd+Shift+3)
-- **SCR2**: Area screenshot (Cmd+Shift+4) 
+- **SCR2**: Area screenshot (Cmd+Shift+4)
 - **SCR3**: Screenshot tool (Cmd+Shift+5)
 - **LOCK**: Lock screen (Cmd+Ctrl+Q)
 - **FORCE**: Force quit (Cmd+Option+Esc)
 
-### Media Controls
+### 🎵 Media Controls
 - Volume Up/Down
 - Mute
 - Previous/Next Track
 - Play/Pause
 
-## Configuration Details
+## 🔧 Configuration Details
 
-### Power Management
+### 🔋 Power Management
 - Sleep timeout: 15 minutes
 - Idle timeout: 5 minutes
-- RGB underglow: 100% brightness, auto-off when idle
 
-### Bluetooth
+### 📶 Bluetooth
 - 5 profiles for multi-device support
 - Experimental connection improvements enabled
 
-### Layer Access
+### 🗂️ Layer Access
 - **Lower**: Hold left thumb key
 - **Raise**: Hold right thumb key
-- **Adjust**: LOWER + RAISE or TAB + BACKSPACE combo
+- **Adjust**: Hold ESC (bottom-right, 150ms) or TAB + BACKSPACE combo
 
-## Building
+## 🏗️ Building
 
 This configuration uses GitHub Actions for automated builds. Push changes to trigger a new build and download the firmware artifacts.
 
-## Installation
+## 📥 Installation
 
 1. Download the firmware files from GitHub Actions artifacts
 2. Put keyboard in bootloader mode (double-tap reset)
@@ -134,9 +147,9 @@ This configuration uses GitHub Actions for automated builds. Push changes to tri
    - `corne_left-nice_nano_v2.uf2` for left half
    - `corne_right-nice_nano_v2.uf2` for right half
 
-## Testing & Verification
+## 🧪 Testing & Verification
 
-### Spanish Characters Test
+### 🇪🇸 Spanish Characters Test
 Test these key combinations to verify LATAM layout:
 ```
 ' + vowel = á é í ó ú
@@ -146,7 +159,7 @@ Shift + 1 = ¡
 < and > = NUBS and Shift+NUBS
 ```
 
-### Programming Operators Test (RAISE layer)
+### 💻 Programming Operators Test (RAISE layer)
 Verify these macros produce correct output:
 - `&&` - Logical AND
 - `||` - Logical OR
@@ -158,16 +171,16 @@ Verify these macros produce correct output:
 - `-=` - Subtraction assignment
 - `...` - Spread operator
 
-### Layer Switching Test
+### 🔀 Layer Switching Test
 1. Test ESC layer-tap: Hold ESC for 150ms → ADJUST layer
 2. Test combo: TAB + BSPC simultaneously → ADJUST layer
 3. Verify no stuck layers after multiple activations
 
-## Troubleshooting
+## 🚨 Troubleshooting
 
 If layers get stuck, use the **CLEAR** button in ADJUST layer or the TAB+BACKSPACE combo to reset to base layer.
 
-### Adjusting Layer-Tap Timing
+### ⏱️ Adjusting Layer-Tap Timing
 If 150ms hold time for ESC→ADJUST feels too fast or slow, modify in `corne.keymap`:
 ```c
 lt_fast: layer_tap_fast {
