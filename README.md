@@ -75,7 +75,7 @@ This is a ZMK firmware configuration for a Corne (crkbd) split mechanical keyboa
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 │ BT0 │ BT1 │ BT2 │ BT3 │ BT4 │BTCLR│   │CLEAR│     │     │     │     │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│SLEEP│SCR1 │SCR2 │SCR3 │LOCK │FORCE│   │VOL+ │VOL- │MUTE │PREV │NEXT │PLAY │
+│ OFF │SCR1 │SCR2 │SCR3 │LOCK │FORCE│   │VOL+ │VOL- │MUTE │PREV │NEXT │PLAY │
 └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
                    │ GUI │     │ SPC │   │ ENT │     │ ALT │
                    └─────┴─────┴─────┘   └─────┴─────┴─────┘
@@ -107,7 +107,7 @@ This is a ZMK firmware configuration for a Corne (crkbd) split mechanical keyboa
 - **BT0-BT4**: Bluetooth profile selection
 - **BTCLR**: Clear current Bluetooth profile
 - **CLEAR**: Reset to base layer (emergency unstuck)
-- **SLEEP**: Power off keyboard
+- **OFF**: Soft power off (hold 2s). Wake via reset button on the nice!nano
 - **SCR1**: Full screenshot (Cmd+Shift+3)
 - **SCR2**: Area screenshot (Cmd+Shift+4)
 - **SCR3**: Screenshot tool (Cmd+Shift+5)
@@ -123,8 +123,10 @@ This is a ZMK firmware configuration for a Corne (crkbd) split mechanical keyboa
 ## 🔧 Configuration Details
 
 ### 🔋 Power Management
-- Sleep timeout: 15 minutes
-- Idle timeout: 5 minutes
+- **Idle timeout**: 2 minutes (low power, instant wake on keypress)
+- **Sleep timeout**: 10 minutes (deep sleep, wake on keypress)
+- **Soft Off**: Hold OFF key (2s) in ADJUST layer for full shutdown. Wake via nice!nano reset button
+- **BLE optimized**: 0 dBm TX, 30-50ms connection intervals
 
 ### 📶 Bluetooth
 - 5 profiles for multi-device support
@@ -179,6 +181,18 @@ Verify these macros produce correct output:
 ## 🚨 Troubleshooting
 
 If layers get stuck, use the **CLEAR** button in ADJUST layer or the TAB+BACKSPACE combo to reset to base layer.
+
+### 🔋 Transporting the Keyboard
+
+To prevent battery drain during transport:
+
+1. **Enter Adjust layer** (hold ESC or press TAB + BSPC combo)
+2. **Hold OFF key** (bottom-left) for **2 seconds** — keyboard powers off completely
+3. **To wake up**: Press the **reset button** on each nice!nano (small button on the PCB)
+
+> [!NOTE]
+> Both halves may need a reset button press. The right half (peripheral) may reconnect
+> automatically when the left half (central) wakes, or may need its own reset press.
 
 ### ⏱️ Adjusting Layer-Tap Timing
 If 150ms hold time for ESC→ADJUST feels too fast or slow, modify in `corne.keymap`:
