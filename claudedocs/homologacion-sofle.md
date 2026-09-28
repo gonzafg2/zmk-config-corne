@@ -111,7 +111,7 @@ para futuras vueltas (APXP, SPCL/SPCR, ZM±, ZM0, EMJI).
 |---|---|---|
 | Entrar (desde base/lower/raise) | RSE (pulgar medio der.) + esquina ESC | `&tog 4` en el slot de ESC de raise (hoy `&kp ESC` plano, sin uso real sosteniendo raise) |
 | Salir (desde adentro) | la esquina sola | `&to 0` existente (EXIT) — sin cambios |
-| Respaldo | adjust → tecla `MOUSE` (U, fila 2) | `&tog 4` existente — sin cambios |
+| Respaldo | adjust → tecla `MOUSE` (J, fila 2) | `&tog 4` existente — sin cambios |
 
 Rationale del acceso:
 
