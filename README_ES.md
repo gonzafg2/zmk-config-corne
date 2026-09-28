@@ -43,6 +43,7 @@ Los símbolos que necesitan Option (`@`, `~`, `\`, `` ` ``, `^`) usan Option **i
 
 - Idle a los 2 minutos y sueño profundo a los 10 minutos sin uso (`config/corne.conf`).
 - Sin RGB ni pantalla en este build.
+- Batería: la izquierda reporta la suya y la de la derecha (configurado en `build.yaml`). El menú Bluetooth de macOS muestra solo una; para ver ambas usa una app de barra de menú como [ZMK Battery Bar](https://github.com/itouuuuuuuuu/zmk-battery-bar) o [zmk-battery-center](https://github.com/kot149/zmk-battery-center). Requiere el Corne emparejado por Bluetooth con el Mac.
 - Para transportarlo: Adjust → mantener OFF 2 s.
 
 ## 🎛️ ZMK Studio

@@ -195,6 +195,7 @@ ZMK Studio allows runtime keymap editing via USB without reflashing.
 ### 📶 Bluetooth
 - 5 profiles for multi-device support
 - Experimental connection improvements enabled
+- Battery: the left half reports its own level and the right half's (proxy enabled in `build.yaml`). macOS's Bluetooth menu shows only one; use a menu bar app such as [ZMK Battery Bar](https://github.com/itouuuuuuuuu/zmk-battery-bar) or [zmk-battery-center](https://github.com/kot149/zmk-battery-center) to see both (requires Bluetooth pairing with the Mac)
 
 > [!WARNING]
 > Enabling mouse keys (`CONFIG_ZMK_POINTING=y`) changes the HID descriptor.

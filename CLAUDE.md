@@ -28,7 +28,7 @@ After successful GitHub Actions build, download the `firmware` artifact:
 ## Architecture & Structure
 
 ### Configuration Files
-- **build.yaml**: Build matrix. Only `corne_left` gets the `studio-rpc-usb-uart` snippet and `CONFIG_ZMK_STUDIO=y`
+- **build.yaml**: Build matrix. Central-only settings go in `corne_left`'s `cmake-args` (the shared `corne.conf` applies to both halves and makes `corne_left.conf` be ignored): the `studio-rpc-usb-uart` snippet, `CONFIG_ZMK_STUDIO=y`, and peripheral battery `..._BATTERY_LEVEL_FETCHING`/`..._PROXY`
 - **config/corne.conf**: Power (idle 2 min, sleep 10 min, soft off), mouse keys (`CONFIG_ZMK_POINTING=y`), BLE split tuning. RGB and display disabled (no LEDs on this build)
 - **config/corne.keymap**: Keymap in devicetree syntax — the source of truth
 - **config/west.yml**: West manifest pointing to ZMK
