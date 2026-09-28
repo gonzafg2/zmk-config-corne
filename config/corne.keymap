@@ -234,13 +234,6 @@
 
         combos {
                 compatible = "zmk,combos";
-                combo_adjust {
-                        timeout-ms = <80>;  // cruza mitades: margen para la latencia BLE del split
-                        key-positions = <0 11>;  // TAB + BSDL (esquinas superiores)
-                        bindings = <&mo 3>;
-                        layers = <0 1 2 4>;  // Funciona en todas las capas base + mouse
-                };
-
                 combo_caps_word {
                         timeout-ms = <50>;
                         key-positions = <16 19>;  // F + J (home row bumps)
@@ -250,12 +243,11 @@
         };
 
         // Sin conditional layers: ZMK desactiva el then-layer en cada cambio de capa si no
-        // estan todas las if-layers, lo que mataria el &mo 3 de ESC y del combo.
+        // estan todas las if-layers, lo que mataria el &mo 3 de ESC.
         // Tri-layer manual: &mo 3 en el pulgar RSE de Lower y en el pulgar LWR de Raise.
         // Acceso a ADJUST:
         // - Opción 1: LOWER + RAISE (cualquier orden)
         // - Opción 2: Mantener ESC presionado (layer-tap)
-        // - Opción 3: Combo TAB+BSDL (backup)
 };
 
 &soft_off {

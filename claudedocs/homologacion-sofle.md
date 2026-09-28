@@ -149,7 +149,7 @@ Sofle y no porta. Nada que hacer.
 - RGB (Sofle adjust izquierda, `RM_*`) y BT (Corne adjust fila 2, `BT_*`): fuera por acuerdo.
 - Tri-layer LWR+RSE→adjust de la Sofle: **no proponer** — este repo eliminó las
   conditional layers por un bug documentado con `mo` behaviors (comentario en
-  `corne.keymap`). El acceso a adjust del Corne (combo TAB+BSPC + hold ESC) ya cubre.
+  `corne.keymap`). El acceso a adjust del Corne (hold ESC) ya cubre. *Actualización 2026-09-28: el bug era el desfase de 43 bindings (PR #5); LOWER+RAISE → Adjust volvió como `&mo 3` en el pulgar opuesto (PR #6) y se eliminó el combo TAB+BSDL.*
 - F-keys a lower: diferencia estructural (el Corne no tiene fila numérica), dejar como está.
 - ¿/¡ (aperturas LATAM en raise fila 2 de la Sofle): micro-diferencia, ya accesibles
   vía `?`/`!` con el layout; descartado salvo que se pidan explícito.

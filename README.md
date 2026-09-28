@@ -95,12 +95,11 @@ ADJ = Adjust layer (hold with RAISE)
 > [!TIP]
 > **🔑 Accessing the Adjust Layer**
 >
-> There are 3 ways to activate this layer:
+> There are 2 ways to activate this layer:
 > 1. **Hold LOWER + RAISE** (either order)
 > 2. **Hold ESC** (bottom-right corner of base layer) for 150ms
-> 3. **TAB + BSDL combo** (press both simultaneously) — works from any layer
 >
-> LOWER + RAISE uses `&mo 3` on the opposite thumb of each layer instead of ZMK conditional layers, which would deactivate Adjust when entered via ESC or the combo.
+> LOWER + RAISE uses `&mo 3` on the opposite thumb of each layer instead of ZMK conditional layers, which would deactivate Adjust when entered via ESC.
 
 ### 🖱️ Mouse Layer
 ```
@@ -201,7 +200,7 @@ ZMK Studio allows runtime keymap editing via USB without reflashing.
 ### 🗂️ Layer Access
 - **Lower**: Hold left thumb key
 - **Raise**: Hold right thumb key
-- **Adjust**: Hold LOWER + RAISE, hold ESC (bottom-right, 150ms), or TAB + BSDL combo
+- **Adjust**: Hold LOWER + RAISE, or hold ESC (bottom-right, 150ms)
 - **Mouse**: Hold RAISE + tap the ESC corner, or MOUSE key in Adjust
 
 ## 🏗️ Building
@@ -257,18 +256,18 @@ Verify these macros produce correct output:
 
 ### 🔀 Layer Switching Test
 1. Test ESC layer-tap: Hold ESC for 150ms → ADJUST layer
-2. Test combo: TAB + BSDL simultaneously → ADJUST layer
+2. Test tri-layer: hold LOWER + RAISE → ADJUST layer
 3. Verify no stuck layers after multiple activations
 
 ## 🚨 Troubleshooting
 
-If layers get stuck, use the **CLEAR** button in ADJUST layer or the TAB+BSDL combo to reset to base layer.
+If layers get stuck, use the **CLEAR** button in ADJUST layer to reset to base layer.
 
 ### 🔋 Transporting the Keyboard
 
 To prevent battery drain during transport:
 
-1. **Enter Adjust layer** (hold ESC or press TAB + BSDL combo)
+1. **Enter Adjust layer** (hold ESC or LOWER + RAISE)
 2. **Hold OFF key** (bottom-left) for **2 seconds** — keyboard powers off completely
 3. **To wake up**: Press the **reset button** on each nice!nano (small button on the PCB)
 
