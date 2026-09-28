@@ -255,7 +255,7 @@ Verify these macros produce correct output:
 
 ### 🔀 Layer Switching Test
 1. Test ESC layer-tap: Hold ESC for 150ms → ADJUST layer
-2. Test combo: TAB + BSPC simultaneously → ADJUST layer
+2. Test combo: TAB + BSDL simultaneously → ADJUST layer
 3. Verify no stuck layers after multiple activations
 
 ## 🚨 Troubleshooting
@@ -266,7 +266,7 @@ If layers get stuck, use the **CLEAR** button in ADJUST layer or the TAB+BACKSPA
 
 To prevent battery drain during transport:
 
-1. **Enter Adjust layer** (hold ESC or press TAB + BSPC combo)
+1. **Enter Adjust layer** (hold ESC or press TAB + BSDL combo)
 2. **Hold OFF key** (bottom-left) for **2 seconds** — keyboard powers off completely
 3. **To wake up**: Press the **reset button** on each nice!nano (small button on the PCB)
 
