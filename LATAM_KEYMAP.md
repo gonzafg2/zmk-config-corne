@@ -1,74 +1,36 @@
-# Mapeo de Teclas para Layout LATAM
+# Mapeo de keycodes para layout LATAM (macOS)
 
-## 🔧 Cambios Aplicados
+El keymap envía códigos de teclado US y macOS los traduce con el layout **Latin American** y tipo de teclado **ISO** (ver `README.md`). Esta tabla dice qué produce cada keycode que usa `config/corne.keymap`; los diagramas por capa están en `README.md` y `keymap_visual.md`.
 
-### Capa DEFAULT
-- **Acento ´**: Ahora en la posición correcta (donde estaba ')
-  - Antes: `&kp SQT` → producía `-`
-  - Ahora: `&kp RBKT` → produce `´` ✅
+Fuente de cada valor: los reportes de prueba de los commits `5e8b4b9` (SQT, BSLH, DQT, PIPE, GRAVE, QMARK, UNDER) y `b8ab404` (EQUAL, `LS(N0)`), el commit `35ebea3` (`LA(MINUS)` = `\`) y las etiquetas de `README.md` para el resto. "—" = el keymap no usa esa combinación.
 
-### Capa LOWER - Símbolos Actualizados
-```
-Fila superior derecha:
-- [ → Ahora con MINUS (produce ')  
-- ] → Ahora con EQUAL (produce ¿)
-- \ → BSLH (correcto)
-- ¿ → EQUAL (produce ¿)
-- ! → N1 (Shift+1 = !)
+## Teclas de símbolo
 
-Fila media derecha:
-- { → LBKT (produce `)
-- } → RBKT (produce ´)  
-- = → N0 (Shift+0 = =)
-- ` → LBKT (produce `)
-```
+| Keycode ZMK | Sin Shift | Con Shift | Con Option izquierda (`LA`) | Dónde se usa |
+|---|---|---|---|---|
+| `SEMI` | ñ | — | — | Normal (Ñ) |
+| `LBKT` | ´ (acento muerto) | — | — | Normal (´) |
+| `RBKT` | + | — | ~ | Lower (`+`, `~`), macro `+=` |
+| `SQT` | { | [ (`DQT`) | ^ | Lower (`{`, `[`), Raise (`^`) |
+| `BSLH` | } | ] (`PIPE`) | `` ` `` | Lower (`}`, `]`, `` ` ``) |
+| `MINUS` | ' | ? (`UNDER`) | \ | Lower (`'`, `?`, `\`) |
+| `FSLH` | - | _ (`QMARK`, hoy sin uso) | — | Normal (`-`), Lower (`-`), macro `-=` |
+| `GRAVE` | \| | — | — | Lower (`\|`), macro `\|\|` |
+| `NUBS` (tecla ISO junto a Z) | < | > | — | Lower (`<`, `>`), macro `=>` |
+| `EQUAL` | ¿ | — | — | No usado: por eso `=` es `LS(N0)` |
+| `Q` | q | Q | @ | Raise (`@`) |
 
-## 📋 Tabla de Referencia LATAM
+## Números con Shift
 
-### Keycodes US → Símbolos LATAM
+| `N1` | `N2` | `N3` | `N4` | `N5` | `N6` | `N7` | `N8` | `N9` | `N0` |
+|---|---|---|---|---|---|---|---|---|---|
+| ! | " | # | $ | % | & | / | ( | ) | = |
 
-| Keycode | Sin Shift | Con Shift | Con AltGr |
-|---------|-----------|-----------|-----------|
-| SEMI | ñ | Ñ | |
-| RBKT | ´ (muerto) | ¨ (diéresis) | |
-| LBKT | ` | ^ | |
-| SQT | - | _ | |
-| FSLH | - | _ | |
-| MINUS | ' | ? | \ |
-| EQUAL | ¿ | ¡ | |
-| BSLH | } | ] | |
+`!` se envía como `EXCL` (Shift + 1).
 
-### Números con Shift en LATAM
-- 1 → !
-- 2 → "  
-- 3 → #
-- 4 → $
-- 5 → %
-- 6 → &
-- 7 → /
-- 8 → (
-- 9 → )
-- 0 → =
+## Reglas
 
-### Símbolos Especiales
-- @ → AltGr + Q
-- \ → AltGr + -
-- | → AltGr + 1
-- ~ → AltGr + 4
-- [ → Necesitas explorar qué keycode lo produce
-- ] → Necesitas explorar qué keycode lo produce
-
-## ⚠️ Nota Importante
-
-Los corchetes `[ ]` en LATAM pueden estar en posiciones no estándar. 
-Prueba estas opciones:
-1. Las teclas físicas donde esperarías [ ]
-2. AltGr + otras teclas
-3. Puede que necesites mapearlos explícitamente
-
-## 🎯 Siguiente Paso
-
-Si aún hay símbolos mal mapeados, indica:
-1. ¿Qué símbolo esperabas?
-2. ¿Qué símbolo apareció?
-3. ¿En qué capa/posición?
+- Los símbolos que requieren Option usan Option **izquierda** (`LA(...)`), nunca `RA(...)`: Ghostty tiene `macos-option-as-alt = right` y la Option derecha llega como Alt.
+- `=` siempre es `LS(N0)`; `EQUAL` produce `¿`.
+- `*` usa `KP_MULTIPLY`.
+- Si `<` y `>` salen distinto, revisa que macOS tenga el tipo de teclado ISO.

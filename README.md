@@ -56,8 +56,10 @@ This is a ZMK firmware configuration for a Corne (crkbd) split mechanical keyboa
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 │ GUI │  1  │  2  │  3  │  .  │  0  │   │  [  │  ]  │  <  │  >  │  |  │ DEL │
 └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
-                   │CTRL │     │ SPC │   │ ENT │     │RALT │
+                   │CTRL │     │ SPC │   │ ENT │ ADJ │RALT │
                    └─────┴─────┴─────┘   └─────┴─────┴─────┘
+
+ADJ = Adjust layer (hold with LOWER)
 ```
 
 ### 💻 Raise Layer (Programming & Navigation)
@@ -67,12 +69,14 @@ This is a ZMK firmware configuration for a Corne (crkbd) split mechanical keyboa
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 │SHFT │  ^  │     │  &  │ &&  │ ||  │   │  ←  │  ↓  │  ↑  │  →  │ -=  │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│ GUI │ =>  │ ... │ ==  │ !== │ === │   │HOME │PG_DN│PG_UP│ END │     │ ESC │
+│ GUI │ =>  │ ... │ ==  │ !== │ === │   │HOME │PG_DN│PG_UP│ END │     │MOUSE│
 └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
-                   │CTRL │     │ SPC │   │ ENT │     │ALTGR│
+                   │CTRL │ ADJ │ SPC │   │ ENT │     │ALTGR│
                    └─────┴─────┴─────┘   └─────┴─────┴─────┘
 
 RPT = Key Repeat (repeats the last key pressed)
+MOUSE = Toggle mouse layer (hold RAISE + tap the ESC corner)
+ADJ = Adjust layer (hold with RAISE)
 ```
 
 ### ⚙️ Adjust Layer (System & Media)
@@ -92,10 +96,10 @@ RPT = Key Repeat (repeats the last key pressed)
 > **🔑 Accessing the Adjust Layer**
 >
 > There are 2 ways to activate this layer:
-> 1. **Hold ESC** (bottom-right corner of base layer) for 150ms
-> 2. **TAB + BSDL combo** (press both simultaneously) — works from any layer
+> 1. **Hold LOWER + RAISE** (either order). Adjust stays active until you release the thumb you pressed **second**
+> 2. **Hold ESC** (bottom-right corner of base layer) for 150ms
 >
-> ⚠️ Conditional layers (LOWER + RAISE) were disabled due to a bug with `mo` behaviors.
+> LOWER + RAISE uses `&mo 3` on the opposite thumb of each layer instead of ZMK conditional layers, which would deactivate Adjust when entered via ESC.
 
 ### 🖱️ Mouse Layer
 ```
@@ -116,11 +120,14 @@ EXIT = Return to base layer
 Left side: transparent (can type while mousing)
 ```
 
-**Activating Mouse Layer**: Enter Adjust layer → press MOUSE key
+**Activating Mouse Layer**: Hold RAISE + tap the ESC corner (or Adjust layer → MOUSE key). Leave with EXIT (same corner)
+
+- Release RAISE after tapping the corner: while RAISE is still held, HJKL move the mouse instead of acting as arrows.
+- The right thumbs are clicks inside the mouse layer, so ENTER, RAISE and LOWER + RAISE are not available there. Leave with EXIT first.
 
 > [!WARNING]
 > **BT Re-pair Required**: Enabling mouse keys changes the HID descriptor. After flashing:
-> 1. On the keyboard: use BTCLR to clear all profiles
+> 1. On the keyboard: select each profile you use (BT0-BT4) and press BTCLR (it clears only the selected profile)
 > 2. On each host device: forget "Corne" from Bluetooth settings
 > 3. Re-pair from scratch
 
@@ -188,6 +195,7 @@ ZMK Studio allows runtime keymap editing via USB without reflashing.
 ### 📶 Bluetooth
 - 5 profiles for multi-device support
 - Experimental connection improvements enabled
+- Battery: the left half reports its own level and the right half's (proxy enabled in `build.yaml`). macOS's Bluetooth menu shows only one; use a menu bar app such as [ZMK Battery Bar](https://github.com/itouuuuuuuuu/zmk-battery-bar) or [zmk-battery-center](https://github.com/kot149/zmk-battery-center) to see both (requires Bluetooth pairing with the Mac)
 
 > [!WARNING]
 > Enabling mouse keys (`CONFIG_ZMK_POINTING=y`) changes the HID descriptor.
@@ -196,8 +204,8 @@ ZMK Studio allows runtime keymap editing via USB without reflashing.
 ### 🗂️ Layer Access
 - **Lower**: Hold left thumb key
 - **Raise**: Hold right thumb key
-- **Adjust**: Hold ESC (bottom-right, 150ms) or TAB + BSDL combo
-- **Mouse**: Toggle from Adjust layer (MOUSE key)
+- **Adjust**: Hold LOWER + RAISE, or hold ESC (bottom-right, 150ms)
+- **Mouse**: Hold RAISE + tap the ESC corner, or MOUSE key in Adjust
 
 ## 🏗️ Building
 
@@ -244,7 +252,7 @@ Verify these macros produce correct output:
 - **Smart Shift**: Tap Shift → next key uppercase only | Hold Shift + keys → all uppercase
 
 ### 🖱️ Mouse Layer Test
-1. Enter Adjust layer → press MOUSE → enters mouse layer
+1. Hold RAISE + tap the ESC corner → enters mouse layer (backup: Adjust → MOUSE)
 2. HJKL → cursor moves in correct directions
 3. NM,. → scroll works correctly
 4. Right thumb keys → left click, right click, middle click
@@ -252,18 +260,18 @@ Verify these macros produce correct output:
 
 ### 🔀 Layer Switching Test
 1. Test ESC layer-tap: Hold ESC for 150ms → ADJUST layer
-2. Test combo: TAB + BSDL simultaneously → ADJUST layer
+2. Test tri-layer: hold LOWER + RAISE → ADJUST layer
 3. Verify no stuck layers after multiple activations
 
 ## 🚨 Troubleshooting
 
-If layers get stuck, use the **CLEAR** button in ADJUST layer or the TAB+BSDL combo to reset to base layer.
+If layers get stuck, use the **CLEAR** button in ADJUST layer to reset to base layer.
 
 ### 🔋 Transporting the Keyboard
 
 To prevent battery drain during transport:
 
-1. **Enter Adjust layer** (hold ESC or press TAB + BSDL combo)
+1. **Enter Adjust layer** (hold ESC or LOWER + RAISE)
 2. **Hold OFF key** (bottom-left) for **2 seconds** — keyboard powers off completely
 3. **To wake up**: Press the **reset button** on each nice!nano (small button on the PCB)
 

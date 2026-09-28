@@ -1,7 +1,7 @@
 # Homologación con la Sofle — investigación y propuesta
 
 Fecha: 2026-09-28
-Estado: **investigación completa; acceso de la capa mouse DECIDIDO (§6); sabor del raise y cascada de clicks pendientes**
+Estado: **investigación completa; acceso de la capa mouse IMPLEMENTADO (§6, rama `fix/raise-esc-mouse`); cascada de clicks DESCARTADA (§6); sabor del raise pendiente**
 Base analizada: `config/corne.keymap` en `feature/ralt-cmd-ctrl-swap` (post PR #4: RALT en pulgar derecho + swap Cmd/Ctrl)
 Referencia: `gonzafg2/qmk-userspace-sofle` (`keyboards/sofle/keymaps/gonzafg2/keymap.c`, `users/gonzafg2/gonzafg2.h`, `users/gonzafg2/gonzafg2.c`)
 
@@ -56,7 +56,7 @@ el slot de RSE envía `&mkp RCLK` y el de RET envía `&mkp LCLK`. Consecuencias:
 Mover los clicks a la fila 1 derecha (cascada Sofle) libera los pulgares y ambos
 vuelven a heredar de base. Ver propuesta §6.
 
-## 4. Restricción de espacio: los 7 slots de raise
+## 4. Restricción de espacio: los 6 slots de raise
 
 Slots repurponsables del raise del Corne (hoy `&trans` que heredan la letra de base
 — nadie tipea letras sosteniendo raise, costo de repurpose ≈ 0):
@@ -66,9 +66,13 @@ Slots repurponsables del raise del Corne (hoy `&trans` que heredan la letra de b
 | Y, I, O | fila 1 derecha, sobre las flechas (← ↑ →) |
 | S | fila 2 izquierda |
 | ´ | fila 2 derecha (junto a `-=`) |
-| / y º | fila 3 derecha (junto a END y ESC) |
+| / | fila 3 derecha (entre END y MOUSE) |
 
-14 candidatos (5 operadores + 9 window-mgmt/mac) para 7 slots → hay que priorizar.
+*Actualización 2026-09-28:* eran 7 contando `º` (esquina inferior derecha), pero ese
+`&trans` sobraba (fila 3 con 13 bindings, corregido en PR #5) y la esquina pasó a ser
+`&tog 4` (MOUSE, PR #6). Verificado contra `corne.keymap`: quedan Y, I, O, S, ´ y /.
+
+14 candidatos (5 operadores + 9 window-mgmt/mac) para 6 slots → hay que priorizar.
 
 ## 5. Operadores faltantes: secuencias ZMK decodificadas
 
@@ -89,7 +93,10 @@ a seguir es el de `eq_op`/`and_op` existentes.
 
 ## 6. Propuesta (pendiente de decisión)
 
-### Frente 1 — raise: dos sabores para 7 slots
+### Frente 1 — raise: dos sabores (escritos para 7 slots; hoy hay 6, ver §4)
+
+Con 6 slots `º` ya no existe: el sabor A pierde MCTL y el B pierde EMJI, salvo que se
+reubiquen.
 
 **Sabor A — operadores primero** (recomendado para uso diario TS/Next.js):
 - Y = `>=`, I = `<=`, O = `**`, S = `??`, ´ = `?.` (los 5 de §5)
@@ -111,7 +118,7 @@ para futuras vueltas (APXP, SPCL/SPCR, ZM±, ZM0, EMJI).
 |---|---|---|
 | Entrar (desde base/lower/raise) | RSE (pulgar medio der.) + esquina ESC | `&tog 4` en el slot de ESC de raise (hoy `&kp ESC` plano, sin uso real sosteniendo raise) |
 | Salir (desde adentro) | la esquina sola | `&to 0` existente (EXIT) — sin cambios |
-| Respaldo | adjust → tecla `MOUSE` (U, fila 2) | `&tog 4` existente — sin cambios |
+| Respaldo | adjust → tecla `MOUSE` (J, fila 2) | `&tog 4` existente — sin cambios |
 
 Rationale del acceso:
 
@@ -127,7 +134,7 @@ Rationale del acceso:
   acción hasta el timeout (ESC lento) y anidarlo sobre el `lt_fast 3` existente
   en esa misma tecla es el rincón frágil de behaviors.
 
-**Cascada (propuesta, pendiente de confirmación):**
+**Cascada — DESCARTADA (2026-09-28):** el usuario prefiere los clicks en los pulgares derechos (ENT = LCLK, RSE = RCLK, RALT = MCLK). Costo aceptado: dentro de mouse no hay Enter ni RSE (ni LOWER+RAISE). Propuesta original, como referencia:
 
 1. Clicks de los pulgares → fila 1 derecha (Y = LCLK, U = MCLK, I = RCLK, orden
    BTN1/BTN3/BTN2 de la Sofle). Movimiento fila 2 y scroll fila 3 quedan como están
@@ -149,18 +156,18 @@ Sofle y no porta. Nada que hacer.
 - RGB (Sofle adjust izquierda, `RM_*`) y BT (Corne adjust fila 2, `BT_*`): fuera por acuerdo.
 - Tri-layer LWR+RSE→adjust de la Sofle: **no proponer** — este repo eliminó las
   conditional layers por un bug documentado con `mo` behaviors (comentario en
-  `corne.keymap`). El acceso a adjust del Corne (combo TAB+BSPC + hold ESC) ya cubre.
+  `corne.keymap`). El acceso a adjust del Corne (hold ESC) ya cubre. *Actualización 2026-09-28: el bug era el desfase de 43 bindings (PR #5); LOWER+RAISE → Adjust volvió como `&mo 3` en el pulgar opuesto (PR #6) y se eliminó el combo TAB+BSDL.*
 - F-keys a lower: diferencia estructural (el Corne no tiene fila numérica), dejar como está.
 - ¿/¡ (aperturas LATAM en raise fila 2 de la Sofle): micro-diferencia, ya accesibles
   vía `?`/`!` con el layout; descartado salvo que se pidan explícito.
 
 ## 8. Estado de decisiones
 
-- **Decidido (2026-09-28)**: frente 2, acceso de la capa mouse — entrada
+- **Implementado (2026-09-28, rama `fix/raise-esc-mouse`)**: frente 2, acceso de la capa mouse — entrada
   **raise+ESC** (`&tog 4`), salida esquina (`&to 0`), respaldo adjust. Ver §6.
 - Pendiente: frente 1 — sabor del raise (A/B/otro reparto de los 7 slots).
-- Pendiente: frente 2, cascada de clicks (fila 1 derecha, fix de pulgares RSE/RET) —
-  propuesta, falta confirmación.
+- **Descartado (2026-09-28)**: frente 2, cascada de clicks — los clicks quedan en los
+  pulgares derechos por preferencia del usuario.
 - Implementación: rama nueva apilada sobre `feature/enhanced-behaviors` (mismo
   flujo del PR #4), con docs (`README.md`, `README_ES.md`, `keymap_visual.md`)
   sincronizados y build del workflow para flashear.
