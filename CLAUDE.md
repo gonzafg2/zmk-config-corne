@@ -33,6 +33,7 @@ After successful GitHub Actions build, download the `firmware` artifact:
 - **config/corne.keymap**: Keymap in devicetree syntax — the source of truth
 - **config/west.yml**: West manifest pointing to ZMK
 - **README.md** (English), **README_ES.md** and **keymap_visual.md** (Spanish): layer diagrams must match the keymap; update all three when it changes
+- **LATAM_KEYMAP.md**: US keycode → symbol produced on macOS Latin American (ISO); check it before adding a symbol
 - **claudedocs/**: analyses and decisions (e.g. `homologacion-sofle.md`, parity with the user's Sofle QMK config in `../qmk-userspace-sofle`)
 
 ### Layers
