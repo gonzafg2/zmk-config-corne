@@ -56,8 +56,10 @@ This is a ZMK firmware configuration for a Corne (crkbd) split mechanical keyboa
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 │ GUI │  1  │  2  │  3  │  .  │  0  │   │  [  │  ]  │  <  │  >  │  |  │ DEL │
 └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
-                   │CTRL │     │ SPC │   │ ENT │     │RALT │
+                   │CTRL │     │ SPC │   │ ENT │ ADJ │RALT │
                    └─────┴─────┴─────┘   └─────┴─────┴─────┘
+
+ADJ = Adjust layer (hold with LOWER)
 ```
 
 ### 💻 Raise Layer (Programming & Navigation)
@@ -69,11 +71,12 @@ This is a ZMK firmware configuration for a Corne (crkbd) split mechanical keyboa
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 │ GUI │ =>  │ ... │ ==  │ !== │ === │   │HOME │PG_DN│PG_UP│ END │     │MOUSE│
 └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
-                   │CTRL │     │ SPC │   │ ENT │     │ALTGR│
+                   │CTRL │ ADJ │ SPC │   │ ENT │     │ALTGR│
                    └─────┴─────┴─────┘   └─────┴─────┴─────┘
 
 RPT = Key Repeat (repeats the last key pressed)
 MOUSE = Toggle mouse layer (hold RAISE + tap the ESC corner)
+ADJ = Adjust layer (hold with RAISE)
 ```
 
 ### ⚙️ Adjust Layer (System & Media)
@@ -92,11 +95,12 @@ MOUSE = Toggle mouse layer (hold RAISE + tap the ESC corner)
 > [!TIP]
 > **🔑 Accessing the Adjust Layer**
 >
-> There are 2 ways to activate this layer:
-> 1. **Hold ESC** (bottom-right corner of base layer) for 150ms
-> 2. **TAB + BSDL combo** (press both simultaneously) — works from any layer
+> There are 3 ways to activate this layer:
+> 1. **Hold LOWER + RAISE** (either order)
+> 2. **Hold ESC** (bottom-right corner of base layer) for 150ms
+> 3. **TAB + BSDL combo** (press both simultaneously) — works from any layer
 >
-> ⚠️ Conditional layers (LOWER + RAISE) were disabled due to a bug with `mo` behaviors.
+> LOWER + RAISE uses `&mo 3` on the opposite thumb of each layer instead of ZMK conditional layers, which would deactivate Adjust when entered via ESC or the combo.
 
 ### 🖱️ Mouse Layer
 ```
@@ -197,7 +201,7 @@ ZMK Studio allows runtime keymap editing via USB without reflashing.
 ### 🗂️ Layer Access
 - **Lower**: Hold left thumb key
 - **Raise**: Hold right thumb key
-- **Adjust**: Hold ESC (bottom-right, 150ms) or TAB + BSDL combo
+- **Adjust**: Hold LOWER + RAISE, hold ESC (bottom-right, 150ms), or TAB + BSDL combo
 - **Mouse**: Hold RAISE + tap the ESC corner, or MOUSE key in Adjust
 
 ## 🏗️ Building
