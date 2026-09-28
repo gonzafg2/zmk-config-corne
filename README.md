@@ -122,6 +122,9 @@ Left side: transparent (can type while mousing)
 
 **Activating Mouse Layer**: Hold RAISE + tap the ESC corner (or Adjust layer → MOUSE key). Leave with EXIT (same corner)
 
+- Release RAISE after tapping the corner: while RAISE is still held, HJKL move the mouse instead of acting as arrows.
+- The right thumbs are clicks inside the mouse layer, so ENTER, RAISE and LOWER + RAISE are not available there. Leave with EXIT first.
+
 > [!WARNING]
 > **BT Re-pair Required**: Enabling mouse keys changes the HID descriptor. After flashing:
 > 1. On the keyboard: use BTCLR to clear all profiles
