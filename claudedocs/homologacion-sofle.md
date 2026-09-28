@@ -56,7 +56,7 @@ el slot de RSE envía `&mkp RCLK` y el de RET envía `&mkp LCLK`. Consecuencias:
 Mover los clicks a la fila 1 derecha (cascada Sofle) libera los pulgares y ambos
 vuelven a heredar de base. Ver propuesta §6.
 
-## 4. Restricción de espacio: los 7 slots de raise
+## 4. Restricción de espacio: los 6 slots de raise
 
 Slots repurponsables del raise del Corne (hoy `&trans` que heredan la letra de base
 — nadie tipea letras sosteniendo raise, costo de repurpose ≈ 0):
@@ -66,9 +66,13 @@ Slots repurponsables del raise del Corne (hoy `&trans` que heredan la letra de b
 | Y, I, O | fila 1 derecha, sobre las flechas (← ↑ →) |
 | S | fila 2 izquierda |
 | ´ | fila 2 derecha (junto a `-=`) |
-| / y º | fila 3 derecha (junto a END y ESC) |
+| / | fila 3 derecha (entre END y MOUSE) |
 
-14 candidatos (5 operadores + 9 window-mgmt/mac) para 7 slots → hay que priorizar.
+*Actualización 2026-09-28:* eran 7 contando `º` (esquina inferior derecha), pero ese
+`&trans` sobraba (fila 3 con 13 bindings, corregido en PR #5) y la esquina pasó a ser
+`&tog 4` (MOUSE, PR #6). Verificado contra `corne.keymap`: quedan Y, I, O, S, ´ y /.
+
+14 candidatos (5 operadores + 9 window-mgmt/mac) para 6 slots → hay que priorizar.
 
 ## 5. Operadores faltantes: secuencias ZMK decodificadas
 
@@ -89,7 +93,10 @@ a seguir es el de `eq_op`/`and_op` existentes.
 
 ## 6. Propuesta (pendiente de decisión)
 
-### Frente 1 — raise: dos sabores para 7 slots
+### Frente 1 — raise: dos sabores (escritos para 7 slots; hoy hay 6, ver §4)
+
+Con 6 slots `º` ya no existe: el sabor A pierde MCTL y el B pierde EMJI, salvo que se
+reubiquen.
 
 **Sabor A — operadores primero** (recomendado para uso diario TS/Next.js):
 - Y = `>=`, I = `<=`, O = `**`, S = `??`, ´ = `?.` (los 5 de §5)
