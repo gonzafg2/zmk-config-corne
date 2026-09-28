@@ -1,7 +1,7 @@
 # Homologación con la Sofle — investigación y propuesta
 
 Fecha: 2026-09-28
-Estado: **investigación completa, decisión de implementación pendiente**
+Estado: **investigación completa; acceso de la capa mouse DECIDIDO (§6); sabor del raise y cascada de clicks pendientes**
 Base analizada: `config/corne.keymap` en `feature/ralt-cmd-ctrl-swap` (post PR #4: RALT en pulgar derecho + swap Cmd/Ctrl)
 Referencia: `gonzafg2/qmk-userspace-sofle` (`keyboards/sofle/keymaps/gonzafg2/keymap.c`, `users/gonzafg2/gonzafg2.h`, `users/gonzafg2/gonzafg2.c`)
 
@@ -103,16 +103,41 @@ a seguir es el de `eq_op`/`and_op` existentes.
 Los 9 window-mgmt completos no caben; la tabla de §3-2 queda como pool de candidatos
 para futuras vueltas (APXP, SPCL/SPCR, ZM±, ZM0, EMJI).
 
-### Frente 2 — capa mouse: cascada + entrada momentánea
+### Frente 2 — capa mouse: cascada + acceso raise+ESC
+
+**Acceso DECIDIDO (2026-09-28)** — reemplaza la idea del combo Z+X/N+M:
+
+| Acción | Teclas | Binding |
+|---|---|---|
+| Entrar (desde base/lower/raise) | RSE (pulgar medio der.) + esquina ESC | `&tog 4` en el slot de ESC de raise (hoy `&kp ESC` plano, sin uso real sosteniendo raise) |
+| Salir (desde adentro) | la esquina sola | `&to 0` existente (EXIT) — sin cambios |
+| Respaldo | adjust → tecla `MOUSE` (U, fila 2) | `&tog 4` existente — sin cambios |
+
+Rationale del acceso:
+
+- Entrada deliberada (acorde de 2 teclas, imposible de activar por accidente);
+  salida de 1 tecla.
+- Cualquier camino sale: adentro de mouse, raise+ESC resuelve a la capa mouse
+  (número 4 gana sobre 2 en esa posición) y dispara su propio `&to 0` — no hay
+  forma de quedar encerrado.
+- Adentro de mouse la esquina no envía ESC (es EXIT); un ESC real se hace saliendo
+  y usando el ESC de base.
+- Único cambio de keymap: una línea — raise pos 35: `&kp ESC` → `&tog 4`.
+- Descartado: triple toque. ZMK main sí tiene tap-dance, pero demora la primera
+  acción hasta el timeout (ESC lento) y anidarlo sobre el `lt_fast 3` existente
+  en esa misma tecla es el rincón frágil de behaviors.
+
+**Cascada (propuesta, pendiente de confirmación):**
 
 1. Clicks de los pulgares → fila 1 derecha (Y = LCLK, U = MCLK, I = RCLK, orden
    BTN1/BTN3/BTN2 de la Sofle). Movimiento fila 2 y scroll fila 3 quedan como están
    (ya alineados por columna). **Fix del bug de §3**: pulgares derechos vuelven a
    heredar base (RSE y RET recuperan su función dentro de mouse).
-2. Entrada momentánea estilo `GFG_MUTM` (hold encoder): como el Corne no tiene
-   encoder, proponer un **combo** siguiendo el patrón existente TAB+BSPC→adjust:
-   Z+X (o N+M) sostenidos → `&mo 4`.
-3. Opcional Sofle: EXIT también en la esquina superior derecha (hoy solo esquina inferior).
+2. Opcional Sofle: EXIT también en la esquina superior derecha (hoy solo esquina inferior).
+
+Nota de interacción: el acceso raise+ESC funciona igual con o sin cascada (la
+salida resuelve a `&to 0` por precedencia de capas); la cascada solo revive el
+pulgar RSE adentro de mouse, que hoy es `RCLK`.
 
 ### Frente 3 — volumen/media
 
@@ -129,10 +154,13 @@ Sofle y no porta. Nada que hacer.
 - ¿/¡ (aperturas LATAM en raise fila 2 de la Sofle): micro-diferencia, ya accesibles
   vía `?`/`!` con el layout; descartado salvo que se pidan explícito.
 
-## 8. Pendiente
+## 8. Estado de decisiones
 
-- Elegir sabor del frente 1 (A/B/otro reparto de los 7 slots).
-- Aprobar frente 2 (cascada + combo Z+X/N+M, o solo cascada, o no tocar mouse).
+- **Decidido (2026-09-28)**: frente 2, acceso de la capa mouse — entrada
+  **raise+ESC** (`&tog 4`), salida esquina (`&to 0`), respaldo adjust. Ver §6.
+- Pendiente: frente 1 — sabor del raise (A/B/otro reparto de los 7 slots).
+- Pendiente: frente 2, cascada de clicks (fila 1 derecha, fix de pulgares RSE/RET) —
+  propuesta, falta confirmación.
 - Implementación: rama nueva apilada sobre `feature/enhanced-behaviors` (mismo
   flujo del PR #4), con docs (`README.md`, `README_ES.md`, `keymap_visual.md`)
   sincronizados y build del workflow para flashear.
