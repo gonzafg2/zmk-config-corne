@@ -1,7 +1,7 @@
 # Homologación con la Sofle — investigación y propuesta
 
 Fecha: 2026-09-28
-Estado: **investigación completa; acceso de la capa mouse IMPLEMENTADO (§6, rama `fix/raise-esc-mouse`); sabor del raise y cascada de clicks pendientes**
+Estado: **investigación completa; acceso de la capa mouse IMPLEMENTADO (§6, rama `fix/raise-esc-mouse`); cascada de clicks DESCARTADA (§6); sabor del raise pendiente**
 Base analizada: `config/corne.keymap` en `feature/ralt-cmd-ctrl-swap` (post PR #4: RALT en pulgar derecho + swap Cmd/Ctrl)
 Referencia: `gonzafg2/qmk-userspace-sofle` (`keyboards/sofle/keymaps/gonzafg2/keymap.c`, `users/gonzafg2/gonzafg2.h`, `users/gonzafg2/gonzafg2.c`)
 
@@ -127,7 +127,7 @@ Rationale del acceso:
   acción hasta el timeout (ESC lento) y anidarlo sobre el `lt_fast 3` existente
   en esa misma tecla es el rincón frágil de behaviors.
 
-**Cascada (propuesta, pendiente de confirmación):**
+**Cascada — DESCARTADA (2026-09-28):** el usuario prefiere los clicks en los pulgares derechos (ENT = LCLK, RSE = RCLK, RALT = MCLK). Costo aceptado: dentro de mouse no hay Enter ni RSE (ni LOWER+RAISE). Propuesta original, como referencia:
 
 1. Clicks de los pulgares → fila 1 derecha (Y = LCLK, U = MCLK, I = RCLK, orden
    BTN1/BTN3/BTN2 de la Sofle). Movimiento fila 2 y scroll fila 3 quedan como están
@@ -159,8 +159,8 @@ Sofle y no porta. Nada que hacer.
 - **Implementado (2026-09-28, rama `fix/raise-esc-mouse`)**: frente 2, acceso de la capa mouse — entrada
   **raise+ESC** (`&tog 4`), salida esquina (`&to 0`), respaldo adjust. Ver §6.
 - Pendiente: frente 1 — sabor del raise (A/B/otro reparto de los 7 slots).
-- Pendiente: frente 2, cascada de clicks (fila 1 derecha, fix de pulgares RSE/RET) —
-  propuesta, falta confirmación.
+- **Descartado (2026-09-28)**: frente 2, cascada de clicks — los clicks quedan en los
+  pulgares derechos por preferencia del usuario.
 - Implementación: rama nueva apilada sobre `feature/enhanced-behaviors` (mismo
   flujo del PR #4), con docs (`README.md`, `README_ES.md`, `keymap_visual.md`)
   sincronizados y build del workflow para flashear.
