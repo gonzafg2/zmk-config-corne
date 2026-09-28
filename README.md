@@ -53,13 +53,11 @@ This is a ZMK firmware configuration for a Corne (crkbd) split mechanical keyboa
 │ TAB │  7  │  8  │  9  │  /  │  *  │   │  (  │  )  │  \  │  !  │  ?  │BSDL │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 │SHFT │  4  │  5  │  6  │  +  │  -  │   │  {  │  }  │  ~  │  '  │  "  │  `  │
-├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ GUI │  1  │  2  │  3  │  .  │  0  │   │  [  │  ]  │  <  │  >  │  |  │  _  │ DEL │
-└─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┴─────┘
+├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+│ GUI │  1  │  2  │  3  │  .  │  0  │   │  [  │  ]  │  <  │  >  │  |  │ DEL │
+└─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
                    │CTRL │     │ SPC │   │ ENT │     │RALT │
                    └─────┴─────┴─────┘   └─────┴─────┴─────┘
-
-⚠️ Row 3 has 13 bindings (known firmware anomaly)
 ```
 
 ### 💻 Raise Layer (Programming & Navigation)
@@ -68,14 +66,13 @@ This is a ZMK firmware configuration for a Corne (crkbd) split mechanical keyboa
 │ TAB │  !  │  @  │  #  │  $  │  %  │   │     │ RPT │     │     │ +=  │BSDL │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 │SHFT │  ^  │     │  &  │ &&  │ ||  │   │  ←  │  ↓  │  ↑  │  →  │ -=  │     │
-├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│ GUI │ =>  │ ... │ ==  │ !== │ === │   │HOME │PG_DN│PG_UP│ END │     │     │ ESC │
-└─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┴─────┘
+├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+│ GUI │ =>  │ ... │ ==  │ !== │ === │   │HOME │PG_DN│PG_UP│ END │     │ ESC │
+└─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
                    │CTRL │     │ SPC │   │ ENT │     │ALTGR│
                    └─────┴─────┴─────┘   └─────┴─────┴─────┘
 
 RPT = Key Repeat (repeats the last key pressed)
-⚠️ Row 3 has 13 bindings (known firmware anomaly)
 ```
 
 ### ⚙️ Adjust Layer (System & Media)
@@ -96,7 +93,7 @@ RPT = Key Repeat (repeats the last key pressed)
 >
 > There are 2 ways to activate this layer:
 > 1. **Hold ESC** (bottom-right corner of base layer) for 150ms
-> 2. **TAB + BACKSPACE combo** (press both simultaneously) — works from any layer
+> 2. **TAB + BSDL combo** (press both simultaneously) — works from any layer
 >
 > ⚠️ Conditional layers (LOWER + RAISE) were disabled due to a bug with `mo` behaviors.
 
@@ -199,7 +196,7 @@ ZMK Studio allows runtime keymap editing via USB without reflashing.
 ### 🗂️ Layer Access
 - **Lower**: Hold left thumb key
 - **Raise**: Hold right thumb key
-- **Adjust**: Hold ESC (bottom-right, 150ms) or TAB + BACKSPACE combo
+- **Adjust**: Hold ESC (bottom-right, 150ms) or TAB + BSDL combo
 - **Mouse**: Toggle from Adjust layer (MOUSE key)
 
 ## 🏗️ Building
@@ -260,7 +257,7 @@ Verify these macros produce correct output:
 
 ## 🚨 Troubleshooting
 
-If layers get stuck, use the **CLEAR** button in ADJUST layer or the TAB+BACKSPACE combo to reset to base layer.
+If layers get stuck, use the **CLEAR** button in ADJUST layer or the TAB+BSDL combo to reset to base layer.
 
 ### 🔋 Transporting the Keyboard
 
