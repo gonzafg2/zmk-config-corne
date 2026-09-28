@@ -96,7 +96,7 @@ ADJ = Adjust layer (hold with RAISE)
 > **🔑 Accessing the Adjust Layer**
 >
 > There are 2 ways to activate this layer:
-> 1. **Hold LOWER + RAISE** (either order)
+> 1. **Hold LOWER + RAISE** (either order). Adjust stays active until you release the thumb you pressed **second**
 > 2. **Hold ESC** (bottom-right corner of base layer) for 150ms
 >
 > LOWER + RAISE uses `&mo 3` on the opposite thumb of each layer instead of ZMK conditional layers, which would deactivate Adjust when entered via ESC.
