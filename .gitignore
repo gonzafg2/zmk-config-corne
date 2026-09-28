@@ -1,2 +1,9 @@
 .DS_Store
 
+# Builds locales de firmware (los .uf2 oficiales vienen del workflow de Actions)
+firmware/
+
+# Override gitignore_global: en este repo SÍ queremos claudedocs/ versionado
+# (mismo criterio que qmk-userspace-sofle: contexto persistente entre sesiones)
+!claudedocs/
+!claudedocs/**
