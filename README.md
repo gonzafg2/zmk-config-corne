@@ -36,9 +36,9 @@ This is a ZMK firmware configuration for a Corne (crkbd) split mechanical keyboa
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 │SHFT†│  A  │  S  │  D  │  F  │  G  │   │  H  │  J  │  K  │  L  │  Ñ  │  ´  │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│CTRL │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  -  │ESC‡ │
+│ GUI │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  -  │ESC‡ │
 └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
-                   │ GUI │LOWER│ SPC │   │ ENT │RAISE│ ALT │
+                   │CTRL │LOWER│ SPC │   │ ENT │RAISE│RALT │
                    └─────┴─────┴─────┘   └─────┴─────┴─────┘
 
 *BSDL: tap = Backspace | Shift+tap = Delete (mod-morph)
@@ -54,9 +54,9 @@ This is a ZMK firmware configuration for a Corne (crkbd) split mechanical keyboa
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 │SHFT │  4  │  5  │  6  │  +  │  -  │   │  {  │  }  │  ~  │  '  │  "  │  `  │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│CTRL │  1  │  2  │  3  │  .  │  0  │   │  [  │  ]  │  <  │  >  │  |  │  _  │ DEL │
+│ GUI │  1  │  2  │  3  │  .  │  0  │   │  [  │  ]  │  <  │  >  │  |  │  _  │ DEL │
 └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┴─────┘
-                   │ GUI │     │ SPC │   │ ENT │     │ ALT │
+                   │CTRL │     │ SPC │   │ ENT │     │RALT │
                    └─────┴─────┴─────┘   └─────┴─────┴─────┘
 
 ⚠️ Row 3 has 13 bindings (known firmware anomaly)
@@ -69,9 +69,9 @@ This is a ZMK firmware configuration for a Corne (crkbd) split mechanical keyboa
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 │SHFT │  ^  │     │  &  │ &&  │ ||  │   │  ←  │  ↓  │  ↑  │  →  │ -=  │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│CTRL │ =>  │ ... │ ==  │ !== │ === │   │HOME │PG_DN│PG_UP│ END │     │     │ ESC │
+│ GUI │ =>  │ ... │ ==  │ !== │ === │   │HOME │PG_DN│PG_UP│ END │     │     │ ESC │
 └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┴─────┘
-                   │ GUI │     │ SPC │   │ ENT │     │ALTGR│
+                   │CTRL │     │ SPC │   │ ENT │     │ALTGR│
                    └─────┴─────┴─────┘   └─────┴─────┴─────┘
 
 RPT = Key Repeat (repeats the last key pressed)
@@ -87,7 +87,7 @@ RPT = Key Repeat (repeats the last key pressed)
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 │ OFF │SCR1 │SCR2 │SCR3 │LOCK │FORCE│   │VOL+ │VOL- │MUTE │PREV │NEXT │PLAY │
 └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
-                   │ GUI │     │ SPC │   │ ENT │     │ ALT │
+                   │CTRL │     │ SPC │   │ ENT │     │RALT │
                    └─────┴─────┴─────┘   └─────┴─────┴─────┘
 ```
 

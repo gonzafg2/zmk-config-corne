@@ -45,25 +45,25 @@ Este keymap envía códigos US que tu OS interpreta según el layout configurado
 ### Capa 0 - DEFAULT
 ```
 TAB   Q   W   E   R   T  |  Y   U   I   O   P  BKSP
-CTRL  A   S   D   F   G  |  H   J   K   L   Ñ   ´
-SHIFT Z   X   C   V   B  |  N   M   ,   .   -  ESC
-         GUI LOWER SPC   | ENT RAISE ALT
+SHFT  A   S   D   F   G  |  H   J   K   L   Ñ   ´
+GUI   Z   X   C   V   B  |  N   M   ,   .   -  ESC
+         CTRL LOWER SPC   | ENT RAISE RALT
 ```
 
 ### Capa 1 - LOWER (Numpad + Símbolos)
 ```
 TAB   7   8   9   /   *  |  `   +   \   ¿   ¡  BKSP
-CTRL  4   5   6   +   -  |  (   )   {   }   =   <
-SHIFT 1   2   3   .   0  |      <   >   |   _  DEL
-         GUI ___  SPC    | ENT RAISE ALT
+SHFT  4   5   6   +   -  |  (   )   {   }   =   <
+GUI   1   2   3   .   0  |      <   >   |   _  DEL
+         CTRL ___  SPC    | ENT RAISE RALT
 ```
 
 ### Capa 2 - RAISE (Nav + Símbolos)
 ```
 TAB   !   "   #   $   %  |  &   -   (   )   ?  BKSP
-CTRL  ^   @   €   ~   °  | ←   ↓   ↑   →   ¨   +
-SHIFT --- --- --- --- ---|HOME PGDN PGUP END INS ESC
-         GUI LOWER SPC   | ENT ___ ALTGR
+SHFT  ^   @   €   ~   °  | ←   ↓   ↑   →   ¨   +
+GUI   --- --- --- --- ---|HOME PGDN PGUP END INS ESC
+         CTRL LOWER SPC   | ENT ___ ALTGR
 ```
 
 ### Capa 3 - ADJUST (Sistema + Control)
@@ -72,7 +72,7 @@ Activa con: **LOWER + RAISE simultáneamente**
 F1    F2   F3   F4   F5  F6 | F7  F8  F9  F10 F11 F12
 BT0   BT1  BT2  BT3  BT4 BTCLR|RGB BRI+ BRI- EFF SAT HUE
 POWER SCR1 SCR2 SCR3 --- ---|VOL+ VOL- MUTE --- --- RESET
-           GUI ___  SPC      | ENT ___ ALT
+           CTRL ___  SPC      | ENT ___ RALT
 ```
 
 ## 🛠️ Funciones Especiales
