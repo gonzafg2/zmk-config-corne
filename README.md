@@ -67,12 +67,13 @@ This is a ZMK firmware configuration for a Corne (crkbd) split mechanical keyboa
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 │SHFT │  ^  │     │  &  │ &&  │ ||  │   │  ←  │  ↓  │  ↑  │  →  │ -=  │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│ GUI │ =>  │ ... │ ==  │ !== │ === │   │HOME │PG_DN│PG_UP│ END │     │ ESC │
+│ GUI │ =>  │ ... │ ==  │ !== │ === │   │HOME │PG_DN│PG_UP│ END │     │MOUSE│
 └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
                    │CTRL │     │ SPC │   │ ENT │     │ALTGR│
                    └─────┴─────┴─────┘   └─────┴─────┴─────┘
 
 RPT = Key Repeat (repeats the last key pressed)
+MOUSE = Toggle mouse layer (hold RAISE + tap the ESC corner)
 ```
 
 ### ⚙️ Adjust Layer (System & Media)
@@ -116,7 +117,7 @@ EXIT = Return to base layer
 Left side: transparent (can type while mousing)
 ```
 
-**Activating Mouse Layer**: Enter Adjust layer → press MOUSE key
+**Activating Mouse Layer**: Hold RAISE + tap the ESC corner (or Adjust layer → MOUSE key). Leave with EXIT (same corner)
 
 > [!WARNING]
 > **BT Re-pair Required**: Enabling mouse keys changes the HID descriptor. After flashing:
@@ -197,7 +198,7 @@ ZMK Studio allows runtime keymap editing via USB without reflashing.
 - **Lower**: Hold left thumb key
 - **Raise**: Hold right thumb key
 - **Adjust**: Hold ESC (bottom-right, 150ms) or TAB + BSDL combo
-- **Mouse**: Toggle from Adjust layer (MOUSE key)
+- **Mouse**: Hold RAISE + tap the ESC corner, or MOUSE key in Adjust
 
 ## 🏗️ Building
 
@@ -244,7 +245,7 @@ Verify these macros produce correct output:
 - **Smart Shift**: Tap Shift → next key uppercase only | Hold Shift + keys → all uppercase
 
 ### 🖱️ Mouse Layer Test
-1. Enter Adjust layer → press MOUSE → enters mouse layer
+1. Hold RAISE + tap the ESC corner → enters mouse layer (backup: Adjust → MOUSE)
 2. HJKL → cursor moves in correct directions
 3. NM,. → scroll works correctly
 4. Right thumb keys → left click, right click, middle click

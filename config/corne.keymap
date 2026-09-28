@@ -155,12 +155,12 @@
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !  |  @  |  #  |  $  |  %  |   |     | RPT |     |     | +=  | BSDL|
 // | SSFT |  ^  |     |  &  | &&  | ||  |   | LFT | DWN | UP  | RGT | -=  |      |
-// | GUI  | =>  | ... | ==  | !== | === |   | HOM | PGD | PGU | END |     | ESC  |
+// | GUI  | =>  | ... | ==  | !== | === |   | HOM | PGD | PGU | END |     |MOUSE |
 //                    |CTRL |     | SPC |   | ENT |     | ALTGR |
                         bindings = <
    &kp TAB   &kp EXCL     &kp LA(Q)    &kp LS(N3)    &kp LS(N4)   &kp LS(N5)     &trans         &key_repeat    &trans         &trans        &plus_eq       &bspc_del
    &smart_shft LSHFT LSHFT &kp LA(SQT)  &trans       &kp LS(N6)    &and_op      &or_op         &kp LEFT       &kp DOWN       &kp UP         &kp RIGHT     &minus_eq     &trans
-   &kp LGUI  &arrow_op    &spread_op   &eq_op        &not_eq      &triple_eq     &kp HOME       &kp PG_DN      &kp PG_UP      &kp END       &trans        &kp ESC
+   &kp LGUI  &arrow_op    &spread_op   &eq_op        &not_eq      &triple_eq     &kp HOME       &kp PG_DN      &kp PG_UP      &kp END       &trans        &tog 4
                                        &kp LCTRL     &trans       &kp SPACE      &kp RET   &trans      &kp RALT
                         >;
                 };
@@ -235,7 +235,7 @@
         combos {
                 compatible = "zmk,combos";
                 combo_adjust {
-                        timeout-ms = <50>;
+                        timeout-ms = <80>;  // cruza mitades: margen para la latencia BLE del split
                         key-positions = <0 11>;  // TAB + BSDL (esquinas superiores)
                         bindings = <&mo 3>;
                         layers = <0 1 2 4>;  // Funciona en todas las capas base + mouse

@@ -1,7 +1,7 @@
 # Homologación con la Sofle — investigación y propuesta
 
 Fecha: 2026-09-28
-Estado: **investigación completa; acceso de la capa mouse DECIDIDO (§6); sabor del raise y cascada de clicks pendientes**
+Estado: **investigación completa; acceso de la capa mouse IMPLEMENTADO (§6, rama `fix/raise-esc-mouse`); sabor del raise y cascada de clicks pendientes**
 Base analizada: `config/corne.keymap` en `feature/ralt-cmd-ctrl-swap` (post PR #4: RALT en pulgar derecho + swap Cmd/Ctrl)
 Referencia: `gonzafg2/qmk-userspace-sofle` (`keyboards/sofle/keymaps/gonzafg2/keymap.c`, `users/gonzafg2/gonzafg2.h`, `users/gonzafg2/gonzafg2.c`)
 
@@ -156,7 +156,7 @@ Sofle y no porta. Nada que hacer.
 
 ## 8. Estado de decisiones
 
-- **Decidido (2026-09-28)**: frente 2, acceso de la capa mouse — entrada
+- **Implementado (2026-09-28, rama `fix/raise-esc-mouse`)**: frente 2, acceso de la capa mouse — entrada
   **raise+ESC** (`&tog 4`), salida esquina (`&to 0`), respaldo adjust. Ver §6.
 - Pendiente: frente 1 — sabor del raise (A/B/otro reparto de los 7 slots).
 - Pendiente: frente 2, cascada de clicks (fila 1 derecha, fix de pulgares RSE/RET) —
