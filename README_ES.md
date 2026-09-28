@@ -1,134 +1,67 @@
-# Configuración ZMK Corne - Layout Español
+# Configuración ZMK Corne — Layout Latin American (macOS)
 
-## ⚠️ Advertencia Importante - Batería y RGB
+Firmware ZMK para un Corne (crkbd) split con nice!nano v2. La fuente de verdad es `config/corne.keymap`; los diagramas de cada capa están en [`keymap_visual.md`](keymap_visual.md) (los mismos de `README.md`).
 
-**Con RGB al 100% y batería de 110mAh:**
-- ⚡ Duración estimada: **10-15 minutos**
-- 🔋 Necesitarás cargar el teclado **varias veces al día**
-- 💡 Recomendación: Usa RGB_TOG para apagar cuando no necesites
+## 🔤 Configuración de macOS
 
-### Duración aproximada según brillo:
-- 100% brillo: ~12 minutos
-- 50% brillo: ~25 minutos  
-- 20% brillo: ~1 hora
-- 10% brillo: ~2 horas
-- RGB apagado: ~1-2 meses
+El keymap envía códigos de teclado US y macOS los traduce según el layout configurado:
 
-## 🔤 Mapeo de Símbolos - Español
+1. Fuentes de entrada: **Latin American**.
+2. Ajustes → Teclado → "Cambiar tipo de teclado…" → presiona la tecla a la izquierda del `1` → elige **ISO (Europeo)**. Verifica que `<` y `>` salgan en Lower.
 
-### Configuración del Sistema Operativo
-Este keymap envía códigos US que tu OS interpreta según el layout configurado:
-- **macOS**: Preferencias > Teclado > Fuentes de entrada > Español (o Español - ISO)
-- **Windows**: Configuración > Hora e idioma > Idioma > Español
-- **Linux**: setxkbmap es
+Los símbolos que necesitan Option (`@`, `~`, `\`, `` ` ``, `^`) usan Option **izquierda** (`LA(...)`). El pulgar RALT es Option **derecha**: Ghostty la trata como Alt (`macos-option-as-alt = right`), lo que permite Alt+h/j/k/l en Zellij.
 
-### Tabla de Conversión Keymap → Símbolo Español
+## ⌨️ Capas
 
-| Tecla en Keymap | Keycode ZMK | Salida ES España | Salida ES LATAM |
-|-----------------|-------------|------------------|------------------|
-| ; | SEMI | ñ | ñ |
-| ' | SQT | ´ (acento muerto) | ´ (acento muerto) |
-| / | FSLH | - | - |
-| \ | BSLH | \ | \ |
-| [ | LBKT | ` | [ |
-| ] | RBKT | + | ] |
-| ` | GRAVE | < | < |
+| Capa | Tipo | Cómo entras | Cómo sales |
+|---|---|---|---|
+| 0 Normal | Siempre activa | — | — |
+| 1 Lower (números y símbolos) | Transitoria | Mantener pulgar LOWER | Soltar |
+| 2 Raise (programación y navegación) | Transitoria | Mantener pulgar RAISE | Soltar |
+| 3 Adjust (sistema y media) | Transitoria | LOWER + RAISE, o mantener ESC (150 ms) | Soltar (con LOWER + RAISE, el pulgar que apretaste segundo) |
+| 4 Mouse | Permanente | RAISE + tocar la esquina ESC, o Adjust → MOUSE | EXIT (esquina) o CLEAR en Adjust |
 
-### Símbolos con AltGr (RAISE layer tiene ALTGR)
-- **@ arroba**: AltGr + 2 (España) / AltGr + Q (LATAM)
-- **# numeral**: AltGr + 3 (España) / Shift + 3 (LATAM)
-- **€ euro**: AltGr + E (ambos)
-- **\\ backslash**: Mapeado directamente en LOWER / AltGr + - (varía)
+- Mouse es la capa más alta: mientras está activa gana sobre Lower, Raise y Adjust en las teclas que define.
+- Al entrar a mouse con RAISE + esquina, suelta RAISE.
+- Dentro de mouse los pulgares derechos son clics: no hay ENTER, RAISE ni LOWER + RAISE.
 
-## ⌨️ Layout de Capas
+## 🛠️ Funciones especiales
 
-### Capa 0 - DEFAULT
-```
-TAB   Q   W   E   R   T  |  Y   U   I   O   P  BKSP
-SHFT  A   S   D   F   G  |  H   J   K   L   Ñ   ´
-GUI   Z   X   C   V   B  |  N   M   ,   .   -  ESC
-         CTRL LOWER SPC   | ENT RAISE RALT
-```
+- **BSDL**: tap = Backspace, Shift + tap = Delete.
+- **Smart shift** (experimental): tap = Shift de un solo uso, mantener = Shift sostenido.
+- **Caps Word**: F + J a la vez; mayúsculas hasta espacio, Enter u otra tecla que no sea letra.
+- **Repetir tecla**: Raise + U.
+- **Operadores** (Raise): `&&`, `||`, `==`, `!==`, `===`, `=>`, `...`, `+=`, `-=`.
+- **Adjust**:
+  - F1–F12, volumen, mute, anterior/siguiente, play/pausa.
+  - BT0–BT4: perfiles Bluetooth. BTCLR: borra el emparejamiento del perfil **seleccionado**.
+  - CLEAR: vuelve a la capa normal. MOUSE: activa la capa mouse. UNLCK: desbloquea ZMK Studio.
+  - SCR1/SCR2/SCR3: capturas (⌘⇧3 / ⌘⇧4 / ⌘⇧5). LOCK: bloquear pantalla (⌘⌃Q). FORCE: forzar salida (⌘⌥Esc).
+  - OFF: apagado total manteniéndolo 2 s; se despierta con el botón reset del nice!nano.
 
-### Capa 1 - LOWER (Numpad + Símbolos)
-```
-TAB   7   8   9   /   *  |  `   +   \   ¿   ¡  BKSP
-SHFT  4   5   6   +   -  |  (   )   {   }   =   <
-GUI   1   2   3   .   0  |      <   >   |   _  DEL
-         CTRL ___  SPC    | ENT RAISE RALT
-```
+## 🔋 Energía
 
-### Capa 2 - RAISE (Nav + Símbolos)
-```
-TAB   !   "   #   $   %  |  &   -   (   )   ?  BKSP
-SHFT  ^   @   €   ~   °  | ←   ↓   ↑   →   ¨   +
-GUI   --- --- --- --- ---|HOME PGDN PGUP END INS ESC
-         CTRL LOWER SPC   | ENT ___ ALTGR
-```
+- Idle a los 2 minutos y sueño profundo a los 10 minutos sin uso (`config/corne.conf`).
+- Sin RGB ni pantalla en este build.
+- Para transportarlo: Adjust → mantener OFF 2 s.
 
-### Capa 3 - ADJUST (Sistema + Control)
-Activa con: **LOWER + RAISE simultáneamente**
-```
-F1    F2   F3   F4   F5  F6 | F7  F8  F9  F10 F11 F12
-BT0   BT1  BT2  BT3  BT4 BTCLR|RGB BRI+ BRI- EFF SAT HUE
-POWER SCR1 SCR2 SCR3 --- ---|VOL+ VOL- MUTE --- --- RESET
-           CTRL ___  SPC      | ENT ___ RALT
-```
+## 🎛️ ZMK Studio
 
-## 🛠️ Funciones Especiales
+Solo por USB en la mitad izquierda: abre [zmk.studio](https://zmk.studio) en Chrome o Edge y presiona UNLCK en Adjust. Lo que guardes en Studio queda en el teclado, no en el repo, y tiene prioridad sobre el keymap del firmware; para volver al keymap del repo usa "Restore Stock Settings".
 
-### Control de Energía
-- **POWER** (EP_TOG): Apaga/enciende poder externo y RGB
-- **Idle**: 5 minutos sin actividad → reduce consumo
-- **Sleep**: 15 minutos sin actividad → suspensión profunda
+## 📱 Build y flash
 
-### Macros macOS Screenshots
-- **SCR1**: Captura pantalla completa (⌘+⇧+3)
-- **SCR2**: Captura área seleccionada (⌘+⇧+4)
-- **SCR3**: Herramienta de captura (⌘+⇧+5)
+1. Push a GitHub: GitHub Actions compila (`build.yaml`).
+2. Descarga el artifact `firmware` y extrae los `.uf2`:
+   - `corne_left-nice_nano__zmk-zmk.uf2` (izquierda, con ZMK Studio)
+   - `corne_right-nice_nano__zmk-zmk.uf2` (derecha)
+   - `settings_reset-nice_nano__zmk-zmk.uf2`
+3. Conecta una mitad por USB, doble clic en reset y copia su `.uf2` a la unidad que aparece.
 
-### Control RGB (en ADJUST)
-- **RGB**: Toggle ON/OFF
-- **BRI+/BRI-**: Ajustar brillo
-- **EFF**: Cambiar efecto (sólido/respiración/spectrum/swirl)
-- **SAT**: Saturación
-- **HUE**: Tono de color
+Si solo cambió el keymap, basta con flashear la mitad izquierda (el keymap se procesa en la central).
 
-### Bluetooth (en ADJUST)
-- **BT0-BT4**: Seleccionar perfil 0-4
-- **BTCLR**: Borrar TODOS los emparejamientos (¡usar con cuidado!)
+## 🔧 Solución de problemas
 
-## 📱 Proceso de Build y Flash
-
-1. **Hacer cambios y push**:
-   ```bash
-   git add .
-   git commit -m "Actualizar keymap español"
-   git push origin feature/spanish-layout-enhanced
-   ```
-
-2. **Descargar firmware**:
-   - Ve a GitHub → Actions → Último workflow
-   - Descarga `firmware.zip`
-   - Extrae los archivos .uf2
-
-3. **Flashear**:
-   - Conecta una mitad por USB
-   - Doble click en botón reset → aparece como unidad USB
-   - Copia `corne_left-nice_nano_v2.uf2`
-   - Repite con la otra mitad y `corne_right-nice_nano_v2.uf2`
-
-## 🔧 Solución de Problemas
-
-### Si necesitas resetear configuración:
-1. Flash `settings_reset-nice_nano_v2.uf2` en ambas mitades
-2. Vuelve a flashear el firmware normal
-
-### Si BT no conecta después de BT_CLR:
-1. Elimina el teclado de TODOS tus dispositivos Bluetooth
-2. Vuelve a emparejar desde cero
-
-### Para máxima duración de batería:
-1. Apaga RGB con RGB_TOG cuando no lo uses
-2. Reduce brillo al mínimo necesario
-3. Usa EP_TOG antes de transportar
+- **Resetear configuración**: flashea `settings_reset` en ambas mitades, luego el firmware normal en cada una, y vuelve a emparejar el Bluetooth.
+- **El mouse no se mueve por Bluetooth**: las teclas de mouse cambian el descriptor HID; olvida "Corne" en cada equipo, borra el perfil con BTCLR y vuelve a emparejar.
+- **Capas pegadas**: CLEAR en Adjust.

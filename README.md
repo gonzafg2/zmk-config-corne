@@ -127,7 +127,7 @@ Left side: transparent (can type while mousing)
 
 > [!WARNING]
 > **BT Re-pair Required**: Enabling mouse keys changes the HID descriptor. After flashing:
-> 1. On the keyboard: use BTCLR to clear all profiles
+> 1. On the keyboard: select each profile you use (BT0-BT4) and press BTCLR (it clears only the selected profile)
 > 2. On each host device: forget "Corne" from Bluetooth settings
 > 3. Re-pair from scratch
 
