@@ -252,7 +252,7 @@
         // ELIMINADO: Conditional layers tienen un bug con mo behaviors
         // Acceso a ADJUST: 
         // - Opción 1: Mantener ESC presionado (layer-tap)
-        // - Opción 2: Combo TAB+BSPC (backup)
+        // - Opción 2: Combo TAB+BSDL (backup)
 };
 
 &soft_off {

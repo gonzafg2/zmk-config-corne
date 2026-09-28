@@ -159,7 +159,7 @@ ZMK Studio allows runtime keymap editing via USB without reflashing.
 - **BT0-BT4**: Bluetooth profile selection
 - **BTCLR**: Clear current Bluetooth profile
 - **CLEAR**: Reset to base layer (emergency unstuck)
-- **MOUSE**: Toggle mouse layer on/off
+- **MOUSE**: Activate mouse layer. To leave it, press **EXIT** (bottom-right key on the mouse layer); the MOUSE key is not reachable while the mouse layer is active
 - **UNLCK**: Unlock ZMK Studio access
 - **OFF**: Soft power off (hold 2s). Wake via reset button on the nice!nano
 - **SCR1**: Full screenshot (Cmd+Shift+3)
